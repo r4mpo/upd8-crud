@@ -1,0 +1,1029 @@
+{
+	"info": {
+		"_postman_id": "c10fe69e-a648-41a4-9148-e10e9c1b9296",
+		"name": "API Laravel - Base Perfeita",
+		"description": "Este projeto é uma base robusta e bem estruturada para aplicações em Laravel, concebido para seguir os princípios do SOLID e garantir a escalabilidade e manutenção a longo prazo. A arquitetura é voltada para modularidade, com componentes e serviços bem definidos, promovendo a reutilização de código e o baixo acoplamento entre as partes. A base inclui testes automatizados para garantir a confiabilidade e robustez das funcionalidades, além de adotar boas práticas de desenvolvimento, como injeção de dependência, testes unitários e integração contínua. Ideal para projetos que exigem alta performance, flexibilidade e facilidade de manutenção.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21910262"
+	},
+	"item": [
+		{
+			"name": "Usuário",
+			"item": [
+				{
+					"name": "Registrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Erick",
+									"description": "Nome do novo usuário",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "erick.estoque@gmail",
+									"description": "Endereço de e-mail do novo usuário",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "aa1234567",
+									"description": "Senha do novo usuário",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}usuario/registrar",
+							"host": [
+								"{{base_url}}usuario"
+							],
+							"path": [
+								"registrar"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "333 - Erro desconhecido",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Erick",
+											"description": "Nome do novo usuário",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "erick.estoque@gmail",
+											"description": "Endereço de e-mail do novo usuário",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "aa123456",
+											"description": "Senha do novo usuário",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}usuario/registrar",
+									"host": [
+										"{{base_url}}usuario"
+									],
+									"path": [
+										"registrar"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Mar 2025 16:21:43 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": \"Erro desconhecido\",\n    \"codigo_resposta\": 333\n}"
+						},
+						{
+							"name": "333 - Validação",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Erick",
+											"description": "Nome do novo usuário",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "erick.estoque@gmail",
+											"description": "Endereço de e-mail do novo usuário",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "aa123456",
+											"description": "Senha do novo usuário",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}usuario/registrar",
+									"host": [
+										"{{base_url}}usuario"
+									],
+									"path": [
+										"registrar"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Mar 2025 16:33:20 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": [\n        \"O campo password é obrigatório.\"\n    ],\n    \"codigo_resposta\": 333\n}"
+						},
+						{
+							"name": "111 - Sucesso",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Erick",
+											"description": "Nome do novo usuário",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "erick.estoque@gmail",
+											"description": "Endereço de e-mail do novo usuário",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "aa123456",
+											"description": "Senha do novo usuário",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}usuario/registrar",
+									"host": [
+										"{{base_url}}usuario"
+									],
+									"path": [
+										"registrar"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Mar 2025 16:33:44 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": {\n        \"usuario\": {\n            \"id\": 1,\n            \"name\": \"Erick\",\n            \"email\": \"erick.estoque@gmail\",\n            \"email_verified_at\": \"2025-03-04T16:33:44.000000Z\",\n            \"created_at\": \"2025-03-04T16:33:44.000000Z\",\n            \"updated_at\": \"2025-03-04T16:33:44.000000Z\"\n        },\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzdWFyaW8vcmVnaXN0cmFyIiwiaWF0IjoxNzQxMTA2MDI0LCJleHAiOjE3NDExMDk2MjQsIm5iZiI6MTc0MTEwNjAyNCwianRpIjoid21iVGhEaWhaMk9FYXlzeCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.fJPGF-xWj2LkxDFX03YjrvCsWW4NPg_xnL2y32zq-rY\"\n    },\n    \"codigo_resposta\": 111\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "erick.estoque@gmail",
+									"description": "Endereço de e-mail do usuário",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "aa1234567",
+									"description": "Senha do usuário",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}usuario/login",
+							"host": [
+								"{{base_url}}usuario"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "333 - Validação",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "erick.estoque@gmail",
+											"description": "Endereço de e-mail do usuário",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "aa123456",
+											"description": "Senha do usuário",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}usuario/login",
+									"host": [
+										"{{base_url}}usuario"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Mar 2025 17:37:35 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": [\n        \"O campo password é obrigatório.\"\n    ],\n    \"codigo_resposta\": 333\n}"
+						},
+						{
+							"name": "333 - Credenciais inválidas",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "erick.estoque@gmail",
+											"description": "Endereço de e-mail do usuário",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "aa123456",
+											"description": "Senha do usuário",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}usuario/login",
+									"host": [
+										"{{base_url}}usuario"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Mar 2025 17:38:31 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": \"Credenciais inválidas. Tente novamente.\",\n    \"codigo_resposta\": 333\n}"
+						},
+						{
+							"name": "111 - Sucesso",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "erick.estoque@gmail",
+											"description": "Endereço de e-mail do usuário",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "aa1234567",
+											"description": "Senha do usuário",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}usuario/login",
+									"host": [
+										"{{base_url}}usuario"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Mar 2025 17:52:47 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": {\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzdWFyaW8vbG9naW4iLCJpYXQiOjE3NDExMTA3NjcsImV4cCI6MTc0MTExNDM2NywibmJmIjoxNzQxMTEwNzY3LCJqdGkiOiJsaXpnRm93QnF0NnJobFNPIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.Sdd25Cs2oxEdEyqNvMLIoGCNRwYoRIixkI5LnUSCxVE\",\n        \"id_usuario\": 1,\n        \"tipo_token\": \"bearer\",\n        \"expira_em\": 3600\n    },\n    \"codigo_resposta\": 111\n}"
+						}
+					]
+				},
+				{
+					"name": "detalhar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzdWFyaW8vbG9naW4iLCJpYXQiOjE3NDExMTQ4OTYsImV4cCI6MTc0MTExODQ5NiwibmJmIjoxNzQxMTE0ODk2LCJqdGkiOiJoQlJzSkFFcGU0blk5MUh2Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.piXRfWsK355vWTHfQvDpwDachS4yIPuvGmN6ckqgGj4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base_url}}usuario/detalhar",
+							"host": [
+								"{{base_url}}usuario"
+							],
+							"path": [
+								"detalhar"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "333 - Validação",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{base_url}}usuario/detalhar",
+									"host": [
+										"{{base_url}}usuario"
+									],
+									"path": [
+										"detalhar"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Mar 2025 18:01:22 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": \"Credenciais e/ou sessões inválidas. Tente novamente.\",\n    \"codigo_resposta\": 333\n}"
+						},
+						{
+							"name": "111 - Sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{base_url}}usuario/detalhar",
+									"host": [
+										"{{base_url}}usuario"
+									],
+									"path": [
+										"detalhar"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Mar 2025 18:02:10 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": {\n        \"id\": 1,\n        \"name\": \"Erick\",\n        \"email\": \"erick.estoque@gmail\",\n        \"email_verified_at\": \"2025-03-04T17:42:21.000000Z\",\n        \"created_at\": \"2025-03-04T17:42:21.000000Z\",\n        \"updated_at\": \"2025-03-04T17:42:21.000000Z\"\n    },\n    \"codigo_resposta\": 111\n}"
+						},
+						{
+							"name": "333 - Token Inválido",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{base_url}}usuario/detalhar",
+									"host": [
+										"{{base_url}}usuario"
+									],
+									"path": [
+										"detalhar"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Mar 2025 19:01:31 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": \"Token inválido.\",\n    \"codigo_resposta\": 333\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzdWFyaW8vbG9naW4iLCJpYXQiOjE3NDExMTEzMTgsImV4cCI6MTc0MTExNDkxOCwibmJmIjoxNzQxMTExMzE4LCJqdGkiOiJ0ZjNobEoxWmEzRE96YTlwIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.xJemIk9Wnoy6q1xX3VG8rruN_oPUX6IX8RIAzNZfyvQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base_url}}usuario/logout",
+							"host": [
+								"{{base_url}}usuario"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "111 - Sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{base_url}}usuario/logout",
+									"host": [
+										"{{base_url}}usuario"
+									],
+									"path": [
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Mar 2025 18:18:54 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": \"Usuário desconectado com sucesso.\",\n    \"codigo_resposta\": 111\n}"
+						},
+						{
+							"name": "333 - Token Inválido",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{base_url}}usuario/logout",
+									"host": [
+										"{{base_url}}usuario"
+									],
+									"path": [
+										"logout"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 04 Mar 2025 19:01:27 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": \"Token inválido.\",\n    \"codigo_resposta\": 333\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000/api/",
+			"type": "string"
+		}
+	]
+}
