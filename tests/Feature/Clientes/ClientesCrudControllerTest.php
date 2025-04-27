@@ -50,7 +50,7 @@ class ClientesCrudControllerTest extends TestCase
             'sexo' => 'M',
             'endereco' => 'Rua Teste, 123',
             'estado' => 'SP',
-            'cidade_id' => 1
+            'cidade_id' => '1'
         ];
 
         $response = $this->postJson('/api/clientes', $dados, [

@@ -52,6 +52,7 @@ As Views se comunicam com os dados através de uma **API RESTful**, seguindo os 
 ## 📦 Passo a Passo para Instalação
 
 ```bash
+-- Obrigatório
 git clone https://github.com/r4mpo/upd8-crud.git
 cd upd8-crud
 composer install && composer update
@@ -63,6 +64,10 @@ npm install && npm update
 npm audit fix --force
 npm run dev
 php artisan serve
+
+-- Adicionais
+php artisan test
+php artisan db:seed
 ```
 
 ## 🧩 Arquitetura SOLID

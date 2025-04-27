@@ -1212,6 +1212,678 @@
                 }
             }
         },
+        "/representantes/{id}": {
+            "get": {
+                "tags": [
+                    "Representantes"
+                ],
+                "summary": "Buscar um representante específico",
+                "operationId": "efdd2274bf72b9edfb01f329eddc8fa0",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do representante",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 4
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Representante encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 4
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-04-27T18:54:25.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-04-27T18:54:25.000000Z"
+                                                },
+                                                "cpf": {
+                                                    "type": "string",
+                                                    "example": "12398457103"
+                                                },
+                                                "nome": {
+                                                    "type": "string",
+                                                    "example": "Alex Sandro"
+                                                },
+                                                "data_nascimento": {
+                                                    "type": "string",
+                                                    "format": "date",
+                                                    "example": "2002-01-01"
+                                                },
+                                                "sexo": {
+                                                    "type": "string",
+                                                    "example": "M"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "exemplo@swagger"
+                                                },
+                                                "telefone": {
+                                                    "type": "string",
+                                                    "example": "(16) 3661-4912"
+                                                },
+                                                "endereco": {
+                                                    "type": "string",
+                                                    "example": "R. Teste de Software"
+                                                },
+                                                "estado": {
+                                                    "type": "string",
+                                                    "example": "SP"
+                                                },
+                                                "cidade_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "deleted_at": {
+                                                    "type": "string",
+                                                    "example": null,
+                                                    "nullable": true
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 111
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Token inválido ou não enviado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Não autorizado."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Erro ao processar a requisição."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Representantes"
+                ],
+                "summary": "Atualizar informações de um representante",
+                "operationId": "dfcd1153a428c51d2baf81cb7ec77c1c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do representante",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 4
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nome": {
+                                        "type": "string",
+                                        "example": "Alex Sandro Atualizado"
+                                    },
+                                    "endereco": {
+                                        "type": "string",
+                                        "example": "Nova Rua Atualizada, 100"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Representante atualizado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Sucesso na operação."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 111
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Token inválido ou não enviado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Não autorizado."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Erro ao processar a requisição."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Representantes"
+                ],
+                "summary": "Excluir um representante",
+                "operationId": "443689d96fd2f84cacb051a496ba7d4b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do representante",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 4
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Representante excluído com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Sucesso na operação."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 111
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Token inválido ou não enviado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Não autorizado."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Erro ao processar a requisição."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/representantes": {
+            "get": {
+                "tags": [
+                    "Representantes"
+                ],
+                "summary": "Listar todos os representantes",
+                "operationId": "460f6e6d001c604fe0602b7dbda8c1f3",
+                "responses": {
+                    "200": {
+                        "description": "Lista de representantes",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2025-04-27T18:37:17.000000Z"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2025-04-27T18:37:17.000000Z"
+                                                    },
+                                                    "cpf": {
+                                                        "type": "string",
+                                                        "example": "12345678901"
+                                                    },
+                                                    "nome": {
+                                                        "type": "string",
+                                                        "example": "João Silva"
+                                                    },
+                                                    "data_nascimento": {
+                                                        "type": "string",
+                                                        "format": "date",
+                                                        "example": "1990-05-15"
+                                                    },
+                                                    "sexo": {
+                                                        "type": "string",
+                                                        "example": "M"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "example": "exemplo@swagger"
+                                                    },
+                                                    "telefone": {
+                                                        "type": "string",
+                                                        "example": "(16) 3661-4912"
+                                                    },
+                                                    "endereco": {
+                                                        "type": "string",
+                                                        "example": "Rua das Flores, 123"
+                                                    },
+                                                    "estado": {
+                                                        "type": "string",
+                                                        "example": "SP"
+                                                    },
+                                                    "cidade_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "deleted_at": {
+                                                        "type": "string",
+                                                        "example": null,
+                                                        "nullable": true
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 111
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Token inválido ou não enviado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Não autorizado."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Erro ao processar a requisição."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Representantes"
+                ],
+                "summary": "Registrar um novo representante",
+                "operationId": "345272afb39557ff638c8c9c4b723704",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "cpf",
+                                    "nome",
+                                    "data_nascimento",
+                                    "sexo",
+                                    "endereco",
+                                    "estado",
+                                    "cidade_id"
+                                ],
+                                "properties": {
+                                    "cpf": {
+                                        "type": "string",
+                                        "example": "12398457103"
+                                    },
+                                    "nome": {
+                                        "type": "string",
+                                        "example": "Alex Sandro"
+                                    },
+                                    "data_nascimento": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2002-01-01"
+                                    },
+                                    "sexo": {
+                                        "type": "string",
+                                        "example": "M"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "exemplo@swagger"
+                                    },
+                                    "telefone": {
+                                        "type": "string",
+                                        "example": "(16) 3661-4912"
+                                    },
+                                    "endereco": {
+                                        "type": "string",
+                                        "example": "R. Teste de Software"
+                                    },
+                                    "estado": {
+                                        "type": "string",
+                                        "example": "SP"
+                                    },
+                                    "cidade_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Representante registrado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "properties": {
+                                                "cpf": {
+                                                    "type": "string",
+                                                    "example": "12398457103"
+                                                },
+                                                "nome": {
+                                                    "type": "string",
+                                                    "example": "Alex Sandro"
+                                                },
+                                                "data_nascimento": {
+                                                    "type": "string",
+                                                    "format": "date",
+                                                    "example": "2002-01-01"
+                                                },
+                                                "sexo": {
+                                                    "type": "string",
+                                                    "example": "M"
+                                                },
+                                                "endereco": {
+                                                    "type": "string",
+                                                    "example": "R. Teste de Software"
+                                                },
+                                                "estado": {
+                                                    "type": "string",
+                                                    "example": "SP"
+                                                },
+                                                "cidade_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-04-27T18:54:25.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-04-27T18:54:25.000000Z"
+                                                },
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 4
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 111
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Erros de validação",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string",
+                                                "example": "O campo cpf é obrigatório."
+                                            }
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Token inválido ou não enviado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Não autorizado."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Erro ao processar a requisição."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/usuario/detalhar": {
             "get": {
                 "tags": [
@@ -1578,6 +2250,10 @@
         {
             "name": "Retorno Padrão",
             "description": "Retorno Padrão"
+        },
+        {
+            "name": "Representantes",
+            "description": "Representantes"
         },
         {
             "name": "Autenticação",

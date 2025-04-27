@@ -18,11 +18,12 @@ return new class extends Migration
             $table->string('nome', 100);
             $table->date('data_nascimento');
             $table->enum('sexo', ['M', 'F']);
+            $table->string('telefone', 20)->nullable();
+            $table->string('email')->unique();
             $table->string('endereco', 60);
             $table->string('estado', 2);
             $table->unsignedBigInteger('cidade_id');
             $table->foreign('cidade_id')->references('id')->on('cidades')->onDelete('cascade');
-            $table->softDeletes();
         });
     }
 

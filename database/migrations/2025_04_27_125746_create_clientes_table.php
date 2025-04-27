@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('estado', 2);
             $table->unsignedBigInteger('cidade_id');
             $table->foreign('cidade_id')->references('id')->on('cidades')->onDelete('cascade');
-            $table->softDeletes();
         });
     }
 
