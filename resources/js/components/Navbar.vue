@@ -2,7 +2,6 @@
     <nav class="navbar">
         <div class="logo"><router-link to="/">upd8</router-link></div>
         <div class="menu">
-                <router-link title="Perfil" to="/perfil"><i class="bi bi-person-circle"></i></router-link>
             <a href="#" @click="logOut()" title="Sair">
                 <i class="bi bi-box-arrow-right"></i>
             </a>
@@ -24,7 +23,9 @@ export default {
     methods: {
         logOut() {
             sessionStorage.removeItem('token');
-            this.$router.push('/login');
+            this.$router.push('/login').then(() => {
+                window.location.reload(); // força recarregamento após a navegação
+            });
         },
         removeElementosObsoletos() {
             document.getElementById('bootstrap-css').remove();
@@ -69,6 +70,7 @@ export default {
 .navbar .menu a:hover {
     opacity: 0.7;
 }
+
 .logo a {
     text-decoration: none !important;
     color: white !important;

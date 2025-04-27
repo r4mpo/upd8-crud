@@ -1,85 +1,72 @@
 <template>
     <div class="container">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <div class="panel panel-login">
-                    <div class="panel-heading">
-                        <img src="../../../public/images/upd8.png" width="100" height="100"
-                            alt="Logo empresa upd8">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <a href="#" :class="{ ativo: loginAtivo }" @click.prevent="mostrarLogin">
-                                    Entrar
-                                </a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="#" :class="{ ativo: !loginAtivo }" @click.prevent="mostrarCadastro">
-                                    Cadastrar-se
-                                </a>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <!-- Formulário de Login -->
-                                <form v-if="loginAtivo" @submit.prevent="enviarLogin">
-                                    <div class="form-group" :class="{ 'is-invalid': !emailValido }">
-                                        <input type="email" v-model="login.email" @blur="validarEmail"
-                                            class="form-control" placeholder="E-mail">
-                                        <small v-if="!emailValido" class="text-danger">E-mail inválido</small>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" v-model="login.senha" class="form-control"
-                                            placeholder="Senha">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="submit" class="form-control btn btn-login" value="Entrar"
-                                            :disabled="!loginValido">
-                                    </div>
-                                </form>
-
-                                <!-- Formulário de Cadastro -->
-                                <form v-if="!loginAtivo" @submit.prevent="enviarCadastro">
-                                    <div class="form-group" :class="{ 'is-invalid': !nomeValido }">
-                                        <input type="text" v-model="cadastro.nome" @blur="validarNome"
-                                            class="form-control" placeholder="Nome">
-                                        <small v-if="!nomeValido" class="text-danger">Nome deve ter pelo menos 3
-                                            caracteres</small>
-                                    </div>
-                                    <div class="form-group" :class="{ 'is-invalid': !emailValido }">
-                                        <input type="email" v-model="cadastro.email" @blur="validarEmail"
-                                            class="form-control" placeholder="E-mail">
-                                        <small v-if="!emailValido" class="text-danger">E-mail inválido</small>
-                                    </div>
-                                    <div class="form-group" :class="{ 'is-invalid': !senhaValida }">
-                                        <input type="password" v-model="cadastro.senha" @blur="validarSenha"
-                                            class="form-control" placeholder="Senha">
-                                        <small v-if="!senhaValida" class="text-danger">Senha deve ter pelo menos 6
-                                            caracteres</small>
-                                    </div>
-                                    <div class="form-group" :class="{ 'is-invalid': !confirmacaoSenhaValida }">
-                                        <input type="password" v-model="cadastro.confirmacaoSenha"
-                                            @blur="validarConfirmacaoSenha" class="form-control"
-                                            placeholder="Confirmar senha">
-                                        <small v-if="!confirmacaoSenhaValida" class="text-danger">As senhas não
-                                            coincidem</small>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="submit" class="form-control btn btn-registrar" value="Cadastrar"
-                                            :disabled="!cadastroValido">
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card shadow mt-5">
+            <div class="card-header text-center bg-white border-bottom-0">
+              <img src="../../../public/images/upd8.png" width="100" height="100" alt="Logo empresa upd8" />
+              <div class="row mt-3">
+                <div class="col-6">
+                  <a href="#" :class="{ 'text-success fw-bold': loginAtivo }" @click.prevent="mostrarLogin">
+                    Entrar
+                  </a>
                 </div>
+                <div class="col-6">
+                  <a href="#" :class="{ 'text-success fw-bold': !loginAtivo }" @click.prevent="mostrarCadastro">
+                    Cadastrar-se
+                  </a>
+                </div>
+              </div>
+              <hr />
             </div>
+            <div class="card-body">
+              <form v-if="loginAtivo" @submit.prevent="enviarLogin">
+                <div class="mb-3">
+                  <input type="email" v-model="login.email" @blur="validarEmail" class="form-control"
+                    :class="{ 'is-invalid': !emailValido }" placeholder="E-mail" />
+                  <div v-if="!emailValido" class="invalid-feedback">E-mail inválido</div>
+                </div>
+                <div class="mb-3">
+                  <input type="password" v-model="login.senha" class="form-control" placeholder="Senha" />
+                </div>
+                <div class="mb-3">
+                  <button type="submit" class="btn btn-login w-100" :disabled="!loginValido">Entrar</button>
+                </div>
+              </form>
+  
+              <form v-else @submit.prevent="enviarCadastro">
+                <div class="mb-3">
+                  <input type="text" v-model="cadastro.nome" @blur="validarNome" class="form-control"
+                    :class="{ 'is-invalid': !nomeValido }" placeholder="Nome" />
+                  <div v-if="!nomeValido" class="invalid-feedback">Nome deve ter pelo menos 3 caracteres</div>
+                </div>
+                <div class="mb-3">
+                  <input type="email" v-model="cadastro.email" @blur="validarEmail" class="form-control"
+                    :class="{ 'is-invalid': !emailValido }" placeholder="E-mail" />
+                  <div v-if="!emailValido" class="invalid-feedback">E-mail inválido</div>
+                </div>
+                <div class="mb-3">
+                  <input type="password" v-model="cadastro.senha" @blur="validarSenha" class="form-control"
+                    :class="{ 'is-invalid': !senhaValida }" placeholder="Senha" />
+                  <div v-if="!senhaValida" class="invalid-feedback">Senha deve ter pelo menos 6 caracteres</div>
+                </div>
+                <div class="mb-3">
+                  <input type="password" v-model="cadastro.confirmacaoSenha" @blur="validarConfirmacaoSenha"
+                    class="form-control" :class="{ 'is-invalid': !confirmacaoSenhaValida }"
+                    placeholder="Confirmar senha" />
+                  <div v-if="!confirmacaoSenhaValida" class="invalid-feedback">As senhas não coincidem</div>
+                </div>
+                <div class="mb-3">
+                  <button type="submit" class="btn btn-registrar w-100" :disabled="!cadastroValido">Cadastrar</button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</template>
-
+  </template>
+  
 <script>
 import { login, registrar } from '../helpers/axios';
 

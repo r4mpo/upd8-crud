@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Representante extends Model
+{
+    use SoftDeletes;
+
+    protected $fillable = [
+        'cpf',
+        'nome',
+        'data_nascimento',
+        'sexo',
+        'endereco',
+        'estado',
+        'cidade_id',
+    ];
+}

@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "c10fe69e-a648-41a4-9148-e10e9c1b9296",
-		"name": "API Laravel - Base Perfeita",
+		"name": "API Laravel - upd8-crud",
 		"description": "Este projeto é uma base robusta e bem estruturada para aplicações em Laravel, concebido para seguir os princípios do SOLID e garantir a escalabilidade e manutenção a longo prazo. A arquitetura é voltada para modularidade, com componentes e serviços bem definidos, promovendo a reutilização de código e o baixo acoplamento entre as partes. A base inclui testes automatizados para garantir a confiabilidade e robustez das funcionalidades, além de adotar boas práticas de desenvolvimento, como injeção de dependência, testes unitários e integração contínua. Ideal para projetos que exigem alta performance, flexibilidade e facilidade de manutenção.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "21910262"

@@ -2,15 +2,21 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 import Home from './../templates/Home.vue';
 import Login from './../templates/Login.vue';
+import Consulta from '../templates/Clientes/Consulta.vue';
 
 const routes = [
-    { path: 
-        '/login', 
+    { 
+        path: '/login', 
         component: Login 
     },
     {
         path: '/',
         component: Home,
+        meta: { requiresAuth: true }
+    },
+    {
+        path: '/clientes/consulta',
+        component: Consulta,
         meta: { requiresAuth: true }
     },
 ];

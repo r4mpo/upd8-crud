@@ -5,7 +5,7 @@ return [
     'documentations' => [
         'default' => [
             'api' => [
-                'title' => 'Laravel API - Base Perfeita',
+                'title' => 'Laravel API - upd8-crud',
             ],
 
             'routes' => [
