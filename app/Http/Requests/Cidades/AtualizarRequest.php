@@ -14,8 +14,8 @@ class AtualizarRequest extends FormRequest
     public function rules()
     {
         $regras_resposta = [
-            "nome" => "string|unique:cidades,nome",
-            "estados" => "string|in:" . implode(',', array_keys(config('estados'))),
+            "nome" => "string",
+            "estado" => "string|in:" . implode(',', array_keys(config('estados'))),
         ];
 
         return $regras_resposta;
