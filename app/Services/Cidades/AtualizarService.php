@@ -15,7 +15,7 @@ class AtualizarService extends DefaultService
     public function __construct(CidadesRepository $cidades_repository)
     {
         parent::__construct();
-        $this->Cidades_repository = $cidades_repository;
+        $this->cidades_repository = $cidades_repository;
     }
     
     public function atualizar($requisicao, $id): ResponseDTO
