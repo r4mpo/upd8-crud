@@ -31,7 +31,7 @@ As Views se comunicam com os dados através de uma **API RESTful**, seguindo os 
 
 ✨ Além dos requisitos obrigatórios, o projeto conta com:
 
-- 🔒 **Login** com proteção de rotas (autenticação segura)
+- 🔒 **Login/Cadastro** com proteção de rotas (autenticação segura)
 - 📚 **Documentação** via **Swagger** e **Postman**
 - 🛠️ **Testes Unitários** com **PHPUnit**
 - 🧱 Arquitetura baseada em **SOLID** (inspirada em: [perfect-laravel-base](https://github.com/r4mpo/perfect-laravel-base))
@@ -52,12 +52,13 @@ As Views se comunicam com os dados através de uma **API RESTful**, seguindo os 
 ## 📦 Passo a Passo para Instalação
 
 ```bash
-git clone ...
+git clone https://github.com/r4mpo/upd8-crud.git
 cd upd8-crud
 composer install && composer update
 cp .env.example .env
 php artisan key:generate
 php artisan migrate
+php artisan l5-swagger:generate
 npm install && npm update
 npm audit fix --force
 npm run dev
