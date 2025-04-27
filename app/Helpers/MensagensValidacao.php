@@ -18,7 +18,7 @@ class MensagensValidacao
             'max' => 'O campo :attribute não pode ter mais de :max caracteres.',
             'date' => 'O campo :attribute deve ser uma data válida.',
             'date_format' => 'O campo :attribute deve estar no formato Y-m-d H:i:s.',
-            'data_sincronizacao.date_format' => 'O campo :attribute deve estar no formato Y-m-dTH:i:sZ.',
+            'data_nascimento.date_format' => 'A data de nascimento deve estar no formato Y-m-d.',
             'after' => 'O campo :attribute deve ser uma data posterior a :date.',
             'before' => 'O campo :attribute deve ser uma data anterior a :date.',
             'exists' => 'O valor do campo :attribute selecionado é inválido.',

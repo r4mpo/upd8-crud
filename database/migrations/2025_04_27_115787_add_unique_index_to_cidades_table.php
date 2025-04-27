@@ -21,7 +21,7 @@ return new class extends Migration {
     public function down()
     {
         Schema::table('cidades', function (Blueprint $table) {
-            $table->dropUnique(['cidades_nome_estado_unique']);
+            $table->dropUnique(['nome', 'estado']);
         });
     }
 };

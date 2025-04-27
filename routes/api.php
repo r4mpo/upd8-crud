@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CidadesController;
+use App\Http\Controllers\ClientesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 
@@ -13,4 +14,6 @@ Route::controller(AuthController::class)->prefix('usuario')->group(function () {
 
 Route::middleware('token')->group(function(){
     Route::apiResource('cidades', CidadesController::class);
+    Route::apiResource('clientes', ClientesController::class);
+    Route::apiResource('representantes', CidadesController::class);
 });

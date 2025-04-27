@@ -378,7 +378,7 @@
                     }
                 },
                 "responses": {
-                    "200": {
+                    "201": {
                         "description": "Cidade registrada com sucesso",
                         "content": {
                             "application/json": {
@@ -453,6 +453,654 @@
                                         "resposta": {
                                             "type": "string",
                                             "example": "Erro ao processar a requisição"
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/clientes/{id}": {
+            "get": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Buscar um cliente específico",
+                "operationId": "468881ebe9bc958792901770f8317de0",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do cliente",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 4
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Cliente encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 4
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-04-27T18:54:25.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-04-27T18:54:25.000000Z"
+                                                },
+                                                "cpf": {
+                                                    "type": "string",
+                                                    "example": "12398457103"
+                                                },
+                                                "nome": {
+                                                    "type": "string",
+                                                    "example": "Alex Sandro"
+                                                },
+                                                "data_nascimento": {
+                                                    "type": "string",
+                                                    "format": "date",
+                                                    "example": "2002-01-01"
+                                                },
+                                                "sexo": {
+                                                    "type": "string",
+                                                    "example": "M"
+                                                },
+                                                "endereco": {
+                                                    "type": "string",
+                                                    "example": "R. Teste de Software"
+                                                },
+                                                "estado": {
+                                                    "type": "string",
+                                                    "example": "SP"
+                                                },
+                                                "cidade_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "deleted_at": {
+                                                    "type": "string",
+                                                    "example": null,
+                                                    "nullable": true
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 111
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Token inválido ou não enviado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Não autorizado."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Erro ao processar a requisição."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Atualizar informações de um cliente",
+                "operationId": "6eca8ecfc149652ad6b0444dfab6d8af",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do cliente",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 4
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nome": {
+                                        "type": "string",
+                                        "example": "Alex Sandro Atualizado"
+                                    },
+                                    "endereco": {
+                                        "type": "string",
+                                        "example": "Nova Rua Atualizada, 100"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Cliente atualizado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Sucesso na operação."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 111
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Token inválido ou não enviado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Não autorizado."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Erro ao processar a requisição."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Excluir um cliente",
+                "operationId": "8ca6a86163da92bb35ed4d25c331eb4d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do cliente",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 4
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Cliente excluído com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Sucesso na operação."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 111
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Token inválido ou não enviado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Não autorizado."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Erro ao processar a requisição."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/clientes": {
+            "get": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Listar todos os clientes",
+                "operationId": "d19c779174041974935bc48af4f42d5c",
+                "responses": {
+                    "200": {
+                        "description": "Lista de clientes",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2025-04-27T18:37:17.000000Z"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2025-04-27T18:37:17.000000Z"
+                                                    },
+                                                    "cpf": {
+                                                        "type": "string",
+                                                        "example": "12345678901"
+                                                    },
+                                                    "nome": {
+                                                        "type": "string",
+                                                        "example": "João Silva"
+                                                    },
+                                                    "data_nascimento": {
+                                                        "type": "string",
+                                                        "format": "date",
+                                                        "example": "1990-05-15"
+                                                    },
+                                                    "sexo": {
+                                                        "type": "string",
+                                                        "example": "M"
+                                                    },
+                                                    "endereco": {
+                                                        "type": "string",
+                                                        "example": "Rua das Flores, 123"
+                                                    },
+                                                    "estado": {
+                                                        "type": "string",
+                                                        "example": "SP"
+                                                    },
+                                                    "cidade_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "deleted_at": {
+                                                        "type": "string",
+                                                        "example": null,
+                                                        "nullable": true
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 111
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Token inválido ou não enviado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Não autorizado."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Erro ao processar a requisição."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Registrar um novo cliente",
+                "operationId": "43a8bfaa36a8aaf244c2187d1d402620",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "cpf",
+                                    "nome",
+                                    "data_nascimento",
+                                    "sexo",
+                                    "endereco",
+                                    "estado",
+                                    "cidade_id"
+                                ],
+                                "properties": {
+                                    "cpf": {
+                                        "type": "string",
+                                        "example": "12398457103"
+                                    },
+                                    "nome": {
+                                        "type": "string",
+                                        "example": "Alex Sandro"
+                                    },
+                                    "data_nascimento": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2002-01-01"
+                                    },
+                                    "sexo": {
+                                        "type": "string",
+                                        "example": "M"
+                                    },
+                                    "endereco": {
+                                        "type": "string",
+                                        "example": "R. Teste de Software"
+                                    },
+                                    "estado": {
+                                        "type": "string",
+                                        "example": "SP"
+                                    },
+                                    "cidade_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Cliente registrado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "properties": {
+                                                "cpf": {
+                                                    "type": "string",
+                                                    "example": "12398457103"
+                                                },
+                                                "nome": {
+                                                    "type": "string",
+                                                    "example": "Alex Sandro"
+                                                },
+                                                "data_nascimento": {
+                                                    "type": "string",
+                                                    "format": "date",
+                                                    "example": "2002-01-01"
+                                                },
+                                                "sexo": {
+                                                    "type": "string",
+                                                    "example": "M"
+                                                },
+                                                "endereco": {
+                                                    "type": "string",
+                                                    "example": "R. Teste de Software"
+                                                },
+                                                "estado": {
+                                                    "type": "string",
+                                                    "example": "SP"
+                                                },
+                                                "cidade_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-04-27T18:54:25.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-04-27T18:54:25.000000Z"
+                                                },
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 4
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 111
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Erros de validação",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string",
+                                                "example": "O campo cpf é obrigatório."
+                                            }
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Token inválido ou não enviado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Não autorizado."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Erro ao processar a requisição."
                                         },
                                         "codigo_resposta": {
                                             "type": "integer",
@@ -922,6 +1570,10 @@
         {
             "name": "Cidades",
             "description": "Cidades"
+        },
+        {
+            "name": "Clientes",
+            "description": "Clientes"
         },
         {
             "name": "Retorno Padrão",

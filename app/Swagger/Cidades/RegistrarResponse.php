@@ -17,7 +17,7 @@ namespace App\Swagger\Cidades;
  *         )
  *     ),
  *     @OA\Response(
- *         response=200,
+ *         response=201,
  *         description="Cidade registrada com sucesso",
  *         @OA\JsonContent(
  *             @OA\Property(

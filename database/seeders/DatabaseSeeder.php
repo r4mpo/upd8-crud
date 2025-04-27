@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         // Rodar: php artisan db:seed
         $this->call([
             CidadeSeeder::class,
+            ClienteSeeder::class,
         ]);    
     }
 }
