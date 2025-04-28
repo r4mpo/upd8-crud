@@ -1212,6 +1212,118 @@
                 }
             }
         },
+        "/renders/combo-box-cidades": {
+            "get": {
+                "tags": [
+                    "Renders"
+                ],
+                "summary": "Renderizar combo box de cidades",
+                "operationId": "3c619d42ff1587d43be64b3754c7a2e2",
+                "responses": {
+                    "200": {
+                        "description": "HTML do combo box com todas as cidades",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "<option value='' selected disabled>Selecione</option><option data-uf='SP' value='1'>São Paulo</option><option data-uf='RJ' value='2'>Rio de Janeiro</option><option data-uf='MG' value='3'>Belo Horizonte</option><option data-uf='BA' value='4'>Salvador</option><option data-uf='CE' value='5'>Cidade Atualizada</option><option data-uf='AM' value='7'>Manaus</option><option data-uf='PE' value='8'>Recife</option><option data-uf='RS' value='9'>Porto Alegre</option><option data-uf='PA' value='10'>Belém</option><option data-uf='GO' value='11'>Goiânia</option><option data-uf='SP' value='12'>Guarulhos</option><option data-uf='SP' value='13'>Campinas</option><option data-uf='MA' value='14'>São Luís</option><option data-uf='AL' value='15'>Maceió</option><option data-uf='RN' value='16'>Natal</option><option data-uf='PI' value='17'>Teresina</option><option data-uf='MS' value='18'>Campo Grande</option><option data-uf='SP' value='19'>São Bernardo do Campo</option><option data-uf='RJ' value='20'>Nova Iguaçu</option><option data-uf='PB' value='21'>João Pessoa</option><option data-uf='SP' value='22'>São José dos Campos</option><option data-uf='SP' value='23'>Santo André</option><option data-uf='PE' value='24'>Jaboatão dos Guararapes</option><option data-uf='SP' value='25'>Osasco</option><option data-uf='BA' value='26'>Santana</option>"
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 111
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Token inválido",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Token inválido."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/renders/combo-box-estados": {
+            "get": {
+                "tags": [
+                    "Renders"
+                ],
+                "summary": "Renderizar combo box de estados",
+                "operationId": "9540e0be1c69513d36850a579c1934a8",
+                "responses": {
+                    "200": {
+                        "description": "HTML do combo box com todos os estados",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "<option value='' selected disabled>Selecione</option><option value='AC'>Acre</option><option value='AL'>Alagoas</option><option value='AP'>Amapá</option><option value='AM'>Amazonas</option><option value='BA'>Bahia</option><option value='CE'>Ceará</option><option value='DF'>Distrito Federal</option><option value='ES'>Espírito Santo</option><option value='GO'>Goiás</option><option value='MA'>Maranhão</option><option value='MT'>Mato Grosso</option><option value='MS'>Mato Grosso do Sul</option><option value='MG'>Minas Gerais</option><option value='PA'>Pará</option><option value='PB'>Paraíba</option><option value='PR'>Paraná</option><option value='PE'>Pernambuco</option><option value='PI'>Piauí</option><option value='RJ'>Rio de Janeiro</option><option value='RN'>Rio Grande do Norte</option><option value='RS'>Rio Grande do Sul</option><option value='RO'>Rondônia</option><option value='RR'>Roraima</option><option value='SC'>Santa Catarina</option><option value='SP'>São Paulo</option><option value='SE'>Sergipe</option><option value='TO'>Tocantins</option>"
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 111
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Token inválido",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Token inválido."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/representantes/{id}": {
             "get": {
                 "tags": [
@@ -2250,6 +2362,10 @@
         {
             "name": "Retorno Padrão",
             "description": "Retorno Padrão"
+        },
+        {
+            "name": "Renders",
+            "description": "Renders"
         },
         {
             "name": "Representantes",

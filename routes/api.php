@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\CidadesController;
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\Renders\ComboBoxCidadesController;
+use App\Http\Controllers\Renders\ComboBoxEstadosController;
 use App\Http\Controllers\RepresentantesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
@@ -17,4 +19,9 @@ Route::middleware('token')->group(function(){
     Route::apiResource('cidades', CidadesController::class);
     Route::apiResource('clientes', ClientesController::class);
     Route::apiResource('representantes', RepresentantesController::class);
+
+    Route::prefix('renders')->group(function(){
+        Route::get('combo-box-estados', [ComboBoxEstadosController::class, 'renderizar']);
+        Route::get('combo-box-cidades', [ComboBoxCidadesController::class, 'renderizar']);
+    });
 });

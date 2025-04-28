@@ -36,6 +36,7 @@ As Views se comunicam com os dados através de uma **API RESTful**, seguindo os 
 - 🛠️ **Testes Unitários** com **PHPUnit**
 - 🧱 Arquitetura baseada em **SOLID** (inspirada em: [perfect-laravel-base](https://github.com/r4mpo/perfect-laravel-base))
 - 🎨 **Framework Front-end** com **Vue.js**, **Vue Router** e **Axios**
+- ☑️ **Renderização** de caixas de seleção pelo back-end, favorecendo a segurança e praticidade
 
 ---
 
