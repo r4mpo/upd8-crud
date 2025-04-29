@@ -27,6 +27,7 @@ export default {
             retorno: {
                 icone: 'error',
                 titulo: 'Ops...',
+                status: false,
                 mensagem: 'Houve um erro inesperado',
             },
             estados: [],
@@ -67,24 +68,28 @@ export default {
         async enviarDados(campos) {
             try {
                 const response = await postDados('clientes', campos);
-
                 if (response.codigo_resposta == 111) {
-                    this.retorno.icone = 'success';
-                    this.retorno.titulo = 'Sucesso!';
-                    this.retorno.mensagem = 'Informações dos clientes atualizadas com sucesso!'
+                    this.definirRetorno('success', true, 'Sucesso!', 'Informações dos clientes atualizadas com sucesso!');
                 }
-                this.clientes = Array.isArray(response.resposta) ? response.resposta : [];
             } catch (error) {
+                let mensagem = 'Houve um erro interno...';
                 if (error.response.data.resposta) {
                     let detalhes_erro = error.response.data.resposta;
-                    this.retorno.mensagem = Array.isArray(detalhes_erro) ? (detalhes_erro).join('\n') : detalhes_erro;
+                    mensagem = Array.isArray(detalhes_erro) ? (detalhes_erro).join('\n') : detalhes_erro;
                 }
+                this.definirRetorno('error', false, 'Erro!', mensagem);
             } finally {
                 Swal.fire({
                     title: this.retorno.titulo,
                     text: this.retorno.mensagem,
                     icon: this.retorno.icone
                 });
+            }
+
+            if (this.retorno.status) {
+                setTimeout(() => {
+                    this.redirecionar();
+                }, 3000);
             }
         },
         registrarClientes() {
@@ -93,6 +98,17 @@ export default {
                 cpf: this.campos.cpf.replace(/\D/g, '')
             };
             this.enviarDados(campos);
+        },
+        redirecionar() {
+            this.$router.push('/clientes/consulta').then(() => {
+                window.location.reload();
+            });
+        },
+        definirRetorno(icone, status, titulo, mensagem) {
+            this.retorno.icone = icone;
+            this.retorno.status = status;
+            this.retorno.titulo = titulo;
+            this.retorno.mensagem = mensagem
         },
         limparFiltros() {
             this.campos = {

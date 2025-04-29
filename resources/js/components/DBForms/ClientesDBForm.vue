@@ -5,49 +5,66 @@
             <div class="row mb-3">
                 <div class="col-md-3">
                     <label class="form-label">CPF :</label>
-                    <input required type="text" class="form-control" v-model="campos.cpf" v-mask="'###.###.###-##'" placeholder="Digite o CPF" />
+                    <input type="text" class="form-control" v-model="campos.cpf" v-mask="'###.###.###-##'"
+                        :class="{ 'is-invalid': erros.cpf }" placeholder="Digite o CPF" />
+                    <div v-if="erros.cpf" class="invalid-feedback">{{ erros.cpf }}</div>
                 </div>
+
                 <div class="col-md-3">
                     <label class="form-label">Nome :</label>
-                    <input required type="text" class="form-control" v-model="campos.nome" placeholder="Digite o nome" />
+                    <input type="text" class="form-control" v-model="campos.nome" :class="{ 'is-invalid': erros.nome }"
+                        placeholder="Digite o nome" />
+                    <div v-if="erros.nome" class="invalid-feedback">{{ erros.nome }}</div>
                 </div>
+
                 <div class="col-md-3">
                     <label class="form-label">Data Nascimento:</label>
-                    <input required type="date" class="form-control" v-model="campos.data_nascimento" />
+                    <input type="date" class="form-control" v-model="campos.data_nascimento"
+                        :class="{ 'is-invalid': erros.data_nascimento }" />
+                    <div v-if="erros.data_nascimento" class="invalid-feedback">{{ erros.data_nascimento }}</div>
                 </div>
-                <!-- FAÇA COM QUE O USUÁRIO PRECISE MARCAR UM OU OUTRO, POR FAVOR!!! -->
+
                 <div class="col-md-3">
                     <label class="form-label">Sexo:</label><br />
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="sexo" id="masculino" value="M" v-model="campos.sexo" />
+                        <input class="form-check-input" type="radio" name="sexo" id="masculino" value="M"
+                            v-model="campos.sexo" />
                         <label class="form-check-label" for="masculino">Masculino</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="sexo" id="feminino" value="F" v-model="campos.sexo" />
+                        <input class="form-check-input" type="radio" name="sexo" id="feminino" value="F"
+                            v-model="campos.sexo" />
                         <label class="form-check-label" for="feminino">Feminino</label>
                     </div>
+                    <div v-if="erros.sexo" class="invalid-feedback d-block">{{ erros.sexo }}</div>
                 </div>
             </div>
 
             <div class="row mb-3">
                 <div class="col-md-3">
                     <label class="form-label">Endereço :</label>
-                    <input required type="text" class="form-control" v-model="campos.endereco" placeholder="Digite o endereco" />
+                    <input type="text" class="form-control" v-model="campos.endereco"
+                        :class="{ 'is-invalid': erros.endereco }" placeholder="Digite o endereco" />
+                    <div v-if="erros.endereco" class="invalid-feedback">{{ erros.endereco }}</div>
                 </div>
 
                 <div class="col-md-3">
                     <label class="form-label">Estado:</label>
-                    <select required class="form-select" v-model="campos.estado" @change="carregarCidades">
+                    <select class="form-select" v-model="campos.estado" @change="carregarCidades"
+                        :class="{ 'is-invalid': erros.estado }">
                         <option value="">Todos</option>
                         <option v-for="estado in estados" :key="estado.uf" :value="estado.uf">{{ estado.nome }}</option>
                     </select>
+                    <div v-if="erros.estado" class="invalid-feedback">{{ erros.estado }}</div>
                 </div>
+
                 <div class="col-md-3">
                     <label class="form-label">Cidade:</label>
-                    <select required class="form-select" v-model="campos.cidade_id">
+                    <select class="form-select" v-model="campos.cidade_id" :class="{ 'is-invalid': erros.cidade_id }">
                         <option value="">Todos</option>
                         <option v-for="cidade in cidades" :key="cidade.id" :value="cidade.id">{{ cidade.nome }}</option>
                     </select>
+                    <div v-if="erros.cidade_id" class="invalid-feedback">{{ erros.cidade_id }}</div>
                 </div>
             </div>
 
@@ -70,6 +87,12 @@
 import { mask } from 'vue-the-mask';
 
 export default {
+    data() {
+        return {
+            hoverCard: '',
+            erros: {}
+        };
+    },
     directives: {
         mask
     },
@@ -79,10 +102,25 @@ export default {
         cidades: Array,
     },
     methods: {
+        validarFormulario() {
+            this.erros = {};
+
+            if (!this.campos.cpf) this.erros.cpf = 'CPF é obrigatório';
+            if (!this.campos.nome) this.erros.nome = 'Nome é obrigatório';
+            if (!this.campos.data_nascimento) this.erros.data_nascimento = 'Data de nascimento é obrigatória';
+            if (!this.campos.sexo) this.erros.sexo = 'Selecione o sexo';
+            if (!this.campos.endereco) this.erros.endereco = 'Endereço é obrigatório';
+            if (!this.campos.estado) this.erros.estado = 'Selecione o estado';
+            if (!this.campos.cidade_id) this.erros.cidade_id = 'Selecione a cidade';
+
+            return Object.keys(this.erros).length === 0;
+        },
         registrarClientes() {
+            if (!this.validarFormulario()) return;
             this.$emit('registrar-clientes');
         },
         limparFiltros() {
+            this.erros = {};
             this.$emit('limpar-campos');
         },
         carregarCidades() {
@@ -91,3 +129,14 @@ export default {
     }
 };
 </script>
+
+<style>
+.is-invalid {
+    border-color: #dc3545;
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 0.875em;
+}
+</style>
