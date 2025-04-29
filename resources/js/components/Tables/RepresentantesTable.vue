@@ -20,25 +20,25 @@
                     <td colspan="9">Carregando representantes...</td>
                 </tr>
                 <tr v-else-if="!representantes.length">
-                    <td colspan="9">Nenhum cliente encontrado.</td>
+                    <td colspan="9">Nenhum representante encontrado.</td>
                 </tr>
-                <tr v-else v-for="cliente in paginatedRepresentantes" :key="cliente.id">
+                <tr v-else v-for="representante in paginatedRepresentantes" :key="representante.id">
                     <td>
-                        <button class="btn btn-edit mb-1" @click="editarRepresentante(cliente)">
+                        <button class="btn btn-edit mb-1" @click="editarRepresentante(representante)">
                             <i class="bi bi-pencil-square"></i> Editar
                         </button><br />
-                        <button class="btn btn-delete" @click="excluirRepresentante(cliente)">
+                        <button class="btn btn-delete" @click="excluirRepresentante(representante)">
                             <i class="bi bi-trash3"></i> Excluir
                         </button>
                     </td>
-                    <td>{{ cliente.nome }}</td>
-                    <td>{{ cliente.cpf }}</td>
-                    <td>{{ cliente.telefone }}</td>
-                    <td>{{ cliente.email }}</td>
-                    <td>{{ cliente.data_nascimento }}</td>
-                    <td>{{ cliente.estado }}</td>
-                    <td>{{ cliente.cidade }}</td>
-                    <td>{{ cliente.sexo }}</td>
+                    <td>{{ representante.nome }}</td>
+                    <td>{{ representante.cpf }}</td>
+                    <td>{{ representante.telefone }}</td>
+                    <td>{{ representante.email }}</td>
+                    <td>{{ representante.data_nascimento }}</td>
+                    <td>{{ representante.estado }}</td>
+                    <td>{{ representante.cidade }}</td>
+                    <td>{{ representante.sexo }}</td>
                 </tr>
             </tbody>
         </table>
@@ -60,11 +60,11 @@ export default {
         totalPages: Number
     },
     methods: {
-        editarRepresentante(cliente) {
-            console.log('Editar cliente:', cliente);
+        editarRepresentante(representante) {
+            console.log('Editar representante:', representante);
         },
-        excluirRepresentante(cliente) {
-            console.log('Excluir cliente:', cliente);
+        excluirRepresentante(representante) {
+            console.log('Excluir representante:', representante);
         },
         changePage(pageNumber) {
             this.$emit('change-page', pageNumber);

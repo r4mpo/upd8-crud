@@ -133,7 +133,7 @@ class ClienteSeeder extends Seeder
                 'sexo' => rand(0, 1) ? 'M' : 'F',
                 'endereco' => "Rua Cliente {$i}, " . rand(1, 999),
                 'estado' => ['SP', 'RJ', 'MG', 'BA', 'CE', 'RS', 'PE', 'PR', 'SC', 'GO'][array_rand(['SP', 'RJ', 'MG', 'BA', 'CE', 'RS', 'PE', 'PR', 'SC', 'GO'])],
-                'cidade_id' => rand(1, 25),
+                'cidade_id' => rand(1, 5),
                 'created_at' => now(),
                 'updated_at' => now(),
             ];

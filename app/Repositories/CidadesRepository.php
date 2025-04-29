@@ -12,7 +12,7 @@ class CidadesRepository
         $query = Cidade::query();
 
         if (isset($dados['nome']) && !empty($dados['nome'])) {
-            $query->where('cidades.nome', $dados['nome']);
+            $query->where('cidades.nome', 'LIKE',  '%' . $dados['nome'] . '%');
         }
 
         if (isset($dados['estado']) && !empty($dados['estado'])) {

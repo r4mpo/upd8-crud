@@ -18,7 +18,7 @@ namespace App\Swagger\Usuario;
  *     ),
  *     @OA\Response(
  *         response=111,
- *         description="Usuário cadastrado com sucesso",
+ *         description="Usuário registrado com sucesso",
  *         @OA\JsonContent(
  *             @OA\Property(property="resposta", type="object",
  *                 @OA\Property(property="usuario", type="object",

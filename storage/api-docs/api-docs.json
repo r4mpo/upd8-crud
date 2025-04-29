@@ -2250,7 +2250,7 @@
                 },
                 "responses": {
                     "111": {
-                        "description": "Usuário cadastrado com sucesso",
+                        "description": "Usuário registrado com sucesso",
                         "content": {
                             "application/json": {
                                 "schema": {

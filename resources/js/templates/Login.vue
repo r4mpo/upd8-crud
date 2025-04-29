@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-6">
                   <a href="#" :class="{ 'text-success fw-bold': !loginAtivo }" @click.prevent="mostrarCadastro">
-                    Cadastrar-se
+                    Registrar-se
                   </a>
                 </div>
               </div>
@@ -57,7 +57,7 @@
                   <div v-if="!confirmacaoSenhaValida" class="invalid-feedback">As senhas não coincidem</div>
                 </div>
                 <div class="mb-3">
-                  <button type="submit" class="btn btn-registrar w-100" :disabled="!cadastroValido">Cadastrar</button>
+                  <button type="submit" class="btn btn-registrar w-100" :disabled="!cadastroValido">Registrar</button>
                 </div>
               </form>
             </div>
