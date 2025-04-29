@@ -36,13 +36,14 @@ class ConsultarService extends DefaultService
     {
         return $dados->map(function ($cliente) {
             return [
-                'id' =>                 $cliente->id,
-                'nome' =>               $cliente->nome,
-                'cpf' =>                FormatarRetornosHelper::formatarCPF($cliente->cpf),
-                'data_nascimento' =>    FormatarRetornosHelper::formatarDataNascimento($cliente->data_nascimento),
-                'sexo' =>               FormatarRetornosHelper::formatarSexo($cliente->sexo),
-                'estado' =>             $cliente->estado,
-                'cidade' =>             $cliente->nome_cidade,
+                'id'                => $cliente->id,
+                'nome'              => $cliente->nome,
+                'endereco'          => $cliente->endereco,
+                'cpf'               => FormatarRetornosHelper::formatarCPF($cliente->cpf),
+                'data_nascimento'   => FormatarRetornosHelper::formatarDataNascimento($cliente->data_nascimento),
+                'sexo'              => FormatarRetornosHelper::formatarSexo($cliente->sexo),
+                'estado'            => $cliente->estado,
+                'cidade'            => $cliente->nome_cidade,
             ];
         });
     }

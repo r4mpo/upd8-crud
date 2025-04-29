@@ -5,16 +5,17 @@
             <div class="row mb-3">
                 <div class="col-md-3">
                     <label class="form-label">CPF :</label>
-                    <input type="text" class="form-control" v-model="campos.cpf" v-mask="'###.###.###-##'" placeholder="Digite o CPF" />
+                    <input required type="text" class="form-control" v-model="campos.cpf" v-mask="'###.###.###-##'" placeholder="Digite o CPF" />
                 </div>
                 <div class="col-md-3">
                     <label class="form-label">Nome :</label>
-                    <input type="text" class="form-control" v-model="campos.nome" placeholder="Digite o nome" />
+                    <input required type="text" class="form-control" v-model="campos.nome" placeholder="Digite o nome" />
                 </div>
                 <div class="col-md-3">
                     <label class="form-label">Data Nascimento:</label>
-                    <input type="date" class="form-control" v-model="campos.data_nascimento" />
+                    <input required type="date" class="form-control" v-model="campos.data_nascimento" />
                 </div>
+                <!-- FAÇA COM QUE O USUÁRIO PRECISE MARCAR UM OU OUTRO, POR FAVOR!!! -->
                 <div class="col-md-3">
                     <label class="form-label">Sexo:</label><br />
                     <div class="form-check form-check-inline">
@@ -30,15 +31,20 @@
 
             <div class="row mb-3">
                 <div class="col-md-3">
+                    <label class="form-label">Endereço :</label>
+                    <input required type="text" class="form-control" v-model="campos.endereco" placeholder="Digite o endereco" />
+                </div>
+
+                <div class="col-md-3">
                     <label class="form-label">Estado:</label>
-                    <select class="form-select" v-model="campos.estado" @change="carregarCidades">
+                    <select required class="form-select" v-model="campos.estado" @change="carregarCidades">
                         <option value="">Todos</option>
                         <option v-for="estado in estados" :key="estado.uf" :value="estado.uf">{{ estado.nome }}</option>
                     </select>
                 </div>
                 <div class="col-md-3">
                     <label class="form-label">Cidade:</label>
-                    <select class="form-select" v-model="campos.cidade_id">
+                    <select required class="form-select" v-model="campos.cidade_id">
                         <option value="">Todos</option>
                         <option v-for="cidade in cidades" :key="cidade.id" :value="cidade.id">{{ cidade.nome }}</option>
                     </select>

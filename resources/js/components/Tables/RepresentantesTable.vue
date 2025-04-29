@@ -10,6 +10,7 @@
                     <th>Telefone</th>
                     <th>E-mail</th>
                     <th>Data Nasc.</th>
+                    <th>Endereço</th>
                     <th>Estado</th>
                     <th>Cidade</th>
                     <th>Sexo</th>
@@ -17,10 +18,10 @@
             </thead>
             <tbody>
                 <tr v-if="carregando">
-                    <td colspan="9">Carregando representantes...</td>
+                    <td colspan="10">Carregando representantes...</td>
                 </tr>
                 <tr v-else-if="!representantes.length">
-                    <td colspan="9">Nenhum representante encontrado.</td>
+                    <td colspan="10">Nenhum representante encontrado.</td>
                 </tr>
                 <tr v-else v-for="representante in paginatedRepresentantes" :key="representante.id">
                     <td>
@@ -36,6 +37,7 @@
                     <td>{{ representante.telefone }}</td>
                     <td>{{ representante.email }}</td>
                     <td>{{ representante.data_nascimento }}</td>
+                    <td>{{ representante.endereco }}</td>
                     <td>{{ representante.estado }}</td>
                     <td>{{ representante.cidade }}</td>
                     <td>{{ representante.sexo }}</td>

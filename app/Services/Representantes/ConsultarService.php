@@ -38,6 +38,7 @@ class ConsultarService extends DefaultService
             return [
                 'id'                =>  $representante->id,
                 'nome'              =>  $representante->nome,
+                'endereco'          =>  $representante->endereco,
                 'cpf'               =>  FormatarRetornosHelper::formatarCPF($representante->cpf),
                 'data_nascimento'   =>  FormatarRetornosHelper::formatarDataNascimento($representante->data_nascimento),
                 'sexo'              =>  FormatarRetornosHelper::formatarSexo($representante->sexo),

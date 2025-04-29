@@ -20,6 +20,10 @@ class ClientesRepository
         if (isset($dados['nome']) && !empty($dados['nome'])) {
             $query->where('clientes.nome', 'LIKE', '%' . $dados['nome'] . '%');
         }
+
+        if (isset($dados['endereco']) && !empty($dados['endereco'])) {
+            $query->where('clientes.endereco', 'LIKE', '%' . $dados['endereco'] . '%');
+        }
     
         if (isset($dados['data_nascimento']) && !empty($dados['data_nascimento'])) {
             $query->where('clientes.data_nascimento', $dados['data_nascimento']);

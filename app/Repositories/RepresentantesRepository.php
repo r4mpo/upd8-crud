@@ -21,7 +21,11 @@ class RepresentantesRepository
         if (isset($dados['nome']) && !empty($dados['nome'])) {
             $query->where('representantes.nome', 'LIKE', '%' . $dados['nome'] . '%');
         }
-    
+        
+        if (isset($dados['endereco']) && !empty($dados['endereco'])) {
+            $query->where('representantes.endereco', 'LIKE', '%' . $dados['endereco'] . '%');
+        }
+
         if (isset($dados['data_nascimento']) && !empty($dados['data_nascimento'])) {
             $query->where('representantes.data_nascimento', $dados['data_nascimento']);
         }

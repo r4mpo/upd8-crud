@@ -41,6 +41,10 @@
 
             <div class="row mb-3">
                 <div class="col-md-3">
+                    <label class="form-label">Endereço :</label>
+                    <input type="text" class="form-control" v-model="filtros.endereco" placeholder="Digite o endereco" />
+                </div>
+                <div class="col-md-3">
                     <label class="form-label">Estado:</label>
                     <select class="form-select" v-model="filtros.estado" @change="carregarCidades">
                         <option value="">Todos</option>

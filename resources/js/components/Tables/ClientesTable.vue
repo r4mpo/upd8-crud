@@ -8,6 +8,7 @@
                     <th>Cliente</th>
                     <th>CPF</th>
                     <th>Data Nasc.</th>
+                    <th>Endereço</th>
                     <th>Estado</th>
                     <th>Cidade</th>
                     <th>Sexo</th>
@@ -15,10 +16,10 @@
             </thead>
             <tbody>
                 <tr v-if="carregando">
-                    <td colspan="7">Carregando clientes...</td>
+                    <td colspan="8">Carregando clientes...</td>
                 </tr>
                 <tr v-else-if="!clientes.length">
-                    <td colspan="7">Nenhum cliente encontrado.</td>
+                    <td colspan="8">Nenhum cliente encontrado.</td>
                 </tr>
                 <tr v-else v-for="cliente in paginatedClientes" :key="cliente.id">
                     <td>
@@ -32,6 +33,7 @@
                     <td>{{ cliente.nome }}</td>
                     <td>{{ cliente.cpf }}</td>
                     <td>{{ cliente.data_nascimento }}</td>
+                    <td>{{ cliente.endereco }}</td>
                     <td>{{ cliente.estado }}</td>
                     <td>{{ cliente.cidade }}</td>
                     <td>{{ cliente.sexo }}</td>

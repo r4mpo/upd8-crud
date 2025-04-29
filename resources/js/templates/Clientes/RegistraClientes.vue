@@ -75,7 +75,10 @@ export default {
                 }
                 this.clientes = Array.isArray(response.resposta) ? response.resposta : [];
             } catch (error) {
-                console.error('Erro ao carregar clientes:', error);
+                if (error.response.data.resposta) {
+                    let detalhes_erro = error.response.data.resposta;
+                    this.retorno.mensagem = Array.isArray(detalhes_erro) ? (detalhes_erro).join('\n') : detalhes_erro;
+                }
             } finally {
                 Swal.fire({
                     title: this.retorno.titulo,

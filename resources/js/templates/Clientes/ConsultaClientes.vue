@@ -24,6 +24,7 @@ export default {
                 nome: '',
                 data_nascimento: '',
                 sexo: '',
+                endereco: '',
                 estado: '',
                 cidade_id: ''
             },
@@ -101,6 +102,7 @@ export default {
                 nome: '',
                 data_nascimento: '',
                 sexo: '',
+                endereco: '',
                 estado: '',
                 cidade_id: ''
             };
