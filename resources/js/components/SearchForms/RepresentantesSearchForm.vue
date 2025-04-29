@@ -1,7 +1,7 @@
 <template>
     <div class="section">
-        <h5 class="form-title">Consulta Cliente</h5>
-        <form @submit.prevent="pesquisarClientes" @reset="limparFiltros">
+        <h5 class="form-title">Consulta Representante</h5>
+        <form @submit.prevent="pesquisarRepresentantes" @reset="limparFiltros">
             <div class="row mb-3">
                 <div class="col-md-3">
                     <label class="form-label">CPF :</label>
@@ -25,6 +25,17 @@
                         <input class="form-check-input" type="radio" name="sexo" id="feminino" value="F" v-model="filtros.sexo" />
                         <label class="form-check-label" for="feminino">Feminino</label>
                     </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label class="form-label">Telefone :</label>
+                    <input type="text" class="form-control" v-mask="'(##) #####-####'" v-model="filtros.telefone" placeholder="Digite o telefone" />
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">E-mail :</label>
+                    <input type="text" class="form-control" v-model="filtros.email" placeholder="Digite o e-mail" />
                 </div>
             </div>
 
@@ -60,7 +71,6 @@
 </template>
 
 <script>
-
 import { mask } from 'vue-the-mask';
 
 export default {
@@ -73,8 +83,8 @@ export default {
         cidades: Array,
     },
     methods: {
-        pesquisarClientes() {
-            this.$emit('pesquisar-clientes');
+        pesquisarRepresentantes() {
+            this.$emit('pesquisar-representantes');
         },
         limparFiltros() {
             this.$emit('limpar-filtros');

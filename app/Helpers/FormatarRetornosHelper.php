@@ -35,7 +35,7 @@ class FormatarRetornosHelper
     }
 
     /**
-     * Converte o sexo para o formato "Masculino" ou "Feminino".
+     * Converte o sexo para o formato "Masculino" ou "Feminino". 
      * Caso contrário, retorna "Indefinido".
      *
      * @param string $sexo
@@ -49,5 +49,20 @@ class FormatarRetornosHelper
             'F' => 'Feminino',
             default => 'Indefinido',
         };
+    }
+
+    /**
+     * Formata o telefone para o formato (XX) XXXX-XXXX.
+     *
+     * @param string $telefone
+     * @return string
+     */
+    public static function formatarTelefone(string $telefone): string
+    {
+        // Remove todos os caracteres não numéricos
+        $telefone = preg_replace('/\D/', '', $telefone);
+
+        // Aplica a máscara (XX) XXXXX-XXXX
+        return preg_replace('/(\d{2})(\d{5})(\d{4})/', '($1) $2-$3', $telefone);
     }
 }

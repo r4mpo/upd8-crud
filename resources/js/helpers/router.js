@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from './../templates/Home.vue';
 import Login from './../templates/Login.vue';
 import ConsultaClientes from '../templates/Clientes/ConsultaClientes.vue';
+import ConsultaRepresentantes from '../templates/Representantes/ConsultaRepresentantes.vue';
 
 const routes = [
     { 
@@ -17,6 +18,11 @@ const routes = [
     {
         path: '/clientes/consulta',
         component: ConsultaClientes,
+        meta: { requiresAuth: true }
+    },
+    {
+        path: '/representantes/consulta',
+        component: ConsultaRepresentantes,
         meta: { requiresAuth: true }
     },
 ];
