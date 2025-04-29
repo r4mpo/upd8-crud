@@ -97,7 +97,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="cliente in clientes" :key="cliente.id">
+                    <tr v-if="carregando">
+                        <td colspan="7">Carregando clientes...</td>
+                    </tr>
+                    <tr v-else-if="!clientes.length">
+                        <td colspan="7">Nenhum cliente encontrado.</td>
+                    </tr>
+                    <tr v-else v-for="cliente in paginatedClientes" :key="cliente.id">
                         <td>
                             <button class="btn btn-edit mb-1" @click="editarCliente(cliente)">
                                 <i class="bi bi-pencil-square"></i> Editar
@@ -113,18 +119,25 @@
                         <td>{{ cliente.cidade }}</td>
                         <td>{{ cliente.sexo }}</td>
                     </tr>
-                    <tr v-if="!clientes.length">
-                        <td colspan="7">Nenhum cliente encontrado.</td>
-                    </tr>
                 </tbody>
             </table>
+
+            <!-- Paginação -->
+            <div class="pagination">
+                <button class="btn btn-light" :disabled="paginaAtual === 1" @click="changePage(paginaAtual - 1)">
+                    Anterior
+                </button>
+                <span>Página {{ paginaAtual }} de {{ totalPages }}</span>
+                <button class="btn btn-light" :disabled="paginaAtual === totalPages"
+                    @click="changePage(paginaAtual + 1)">
+                    Próximo
+                </button>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-import $ from 'jquery';
-import 'datatables.net';
 import { getDados } from '../../helpers/axios';
 import { mask } from 'vue-the-mask';
 
@@ -144,8 +157,21 @@ export default {
             estados: [],
             cidades: [],
             clientes: [],
-            tabela: null,
+            carregando: false,
+            paginaAtual: 1,
+            itensPorPagina: 5,
         };
+    },
+    computed: {
+        totalPages() {
+            return Math.ceil(this.clientes.length / this.itensPorPagina);
+        },
+        // Filtrando e segmentando os dados para mostrar apenas os itens da página atual
+        paginatedClientes() {
+            const startIndex = (this.paginaAtual - 1) * this.itensPorPagina;
+            const endIndex = startIndex + this.itensPorPagina;
+            return this.clientes.slice(startIndex, endIndex);
+        },
     },
     mounted() {
         this.carregarEstados();
@@ -157,72 +183,42 @@ export default {
                 const response = await getDados('renders/combo-box-estados');
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(response.resposta, 'text/html');
-                this.estados = [...doc.querySelectorAll('option')]
-                    .filter(opt => opt.value)
-                    .map(opt => ({ uf: opt.value, nome: opt.textContent }));
+                this.estados = [...doc.querySelectorAll('option')].filter(opt => opt.value).map(opt => ({ uf: opt.value, nome: opt.textContent }));
             } catch (error) {
                 console.error('Erro ao carregar estados:', error);
             }
         },
         async carregarCidades() {
-            if (!this.filtros.estado) return (this.cidades = []);
+            if (!this.filtros.estado) {
+                this.cidades = [];
+                return;
+            }
             try {
                 const response = await getDados('renders/combo-box-cidades');
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(response.resposta, 'text/html');
-                this.cidades = [...doc.querySelectorAll('option')]
-                    .filter(opt => opt.value && opt.dataset.uf === this.filtros.estado)
-                    .map(opt => ({ id: opt.value, uf: opt.dataset.uf, nome: opt.textContent }));
+                this.cidades = [...doc.querySelectorAll('option')].filter(opt => opt.value && opt.dataset.uf === this.filtros.estado).map(opt => ({ id: opt.value, uf: opt.dataset.uf, nome: opt.textContent }));
             } catch (error) {
                 console.error('Erro ao carregar cidades:', error);
             }
         },
         async carregarClientes(queryParams = '') {
-    try {
-        const response = await getDados('clientes' + queryParams);
-        
-        // Se já existe DataTable, destrua e tire a referência
-        if (this.tabela) {
-            this.tabela.destroy();
-            this.tabela = null;
-        }
-
-        // Atualiza o array de clientes (Vue renderiza o v-for)
-        this.clientes = Array.isArray(response.resposta) ? response.resposta : [];
-
-        // Aguarda o Vue atualizar o DOM
-        this.$nextTick(() => {
-            // Agora que o Vue atualizou, monta o DataTable
-            this.tabela = $('#clientesTable').DataTable({
-                searching: false,
-                paging: true,
-                info: true,
-                ordering: false,
-                autoWidth: false,
-                language: {
-                    "lengthMenu": "Mostrar _MENU_ registros por página",
-                    "zeroRecords": "Nenhum registro encontrado",
-                    "info": "Página _PAGE_ de _PAGES_",
-                    "infoEmpty": "Nenhum cliente disponível",
-                    "infoFiltered": "(filtrado de _MAX_ registros totais)",
-                    "paginate": {
-                        "first": "Primeiro",
-                        "last": "Último",
-                        "next": "Próximo",
-                        "previous": "Anterior"
-                    }
-                }
-            });
-        });
-    } catch (error) {
-        console.error('Erro ao carregar clientes:', error);
-        this.clientes = [];
-    }
-},
+            this.carregando = true;
+            try {
+                const response = await getDados('clientes' + queryParams);
+                this.clientes = Array.isArray(response.resposta) ? response.resposta : [];
+            } catch (error) {
+                console.error('Erro ao carregar clientes:', error);
+                this.clientes = [];
+            } finally {
+                this.carregando = false;
+            }
+        },
         pesquisarClientes() {
+            this.paginaAtual = 1; // Reseta página
             const filtrosLimpos = {
                 ...this.filtros,
-                cpf: this.filtros.cpf.replace(/\D/g, '')
+                cpf: this.filtros.cpf.replace(/\D/g, ''),
             };
             const params = new URLSearchParams(filtrosLimpos).toString();
             this.carregarClientes('?' + params);
@@ -234,9 +230,10 @@ export default {
                 data_nascimento: '',
                 sexo: '',
                 estado: '',
-                cidade_id: ''
+                cidade_id: '',
             };
             this.cidades = [];
+            this.carregarClientes(); // recarrega sem filtros
         },
         editarCliente(cliente) {
             console.log('Editar cliente:', cliente);
@@ -246,8 +243,12 @@ export default {
         },
         logOut() {
             console.log('Fazer logout');
-        }
-    }
+        },
+        // Lógica para mudar de página
+        changePage(pageNumber) {
+            this.paginaAtual = pageNumber;
+        },
+    },
 };
 </script>
 
@@ -314,19 +315,24 @@ table td {
     text-align: center;
 }
 
-/* Remove qualquer classe automática aplicada pelo DataTables */
-#clientesTable td {
-    text-align: center !important;
+/* Estilos para a paginação */
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
 }
 
-/* Caso haja uma classe específica de tipo numérico, força o alinhamento à esquerda */
-#clientesTable td.dt-type-numeric {
-    text-align: center !important;
+.btn-pagination {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
 }
 
-/* Garantir que todas as células de tabela sejam alinhadas à esquerda */
-#clientesTable th,
-#clientesTable td {
-    text-align: center !important;
+.btn-pagination:disabled {
+    background-color: #d3d3d3;
+    cursor: not-allowed;
 }
 </style>
