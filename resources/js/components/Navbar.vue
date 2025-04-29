@@ -1,9 +1,15 @@
 <template>
-    <nav class="navbar">
-        <div class="logo"><router-link to="/">upd8</router-link></div>
-        <div class="menu">
-            <a href="#" @click="logOut()" title="Sair">
-                <i class="bi bi-box-arrow-right"></i>
+    <nav class="navbar d-flex justify-content-between align-items-center p-2">
+        <div class="logo">
+            <router-link to="/" class="d-flex align-items-center">
+                <img src="../../../public/images/upd8.png" width="40" height="40" alt="Logo empresa upd8"
+                    class="me-2" />
+                <span>upd8</span>
+            </router-link>
+        </div>
+        <div>
+            <a href="#" @click="logOut" title="Sair">
+                <i class="bi bi-box-arrow-right fs-4"></i>
             </a>
         </div>
     </nav>
@@ -18,7 +24,7 @@ export default {
         }
     },
     mounted() {
-        this.removeElementosObsoletos();
+        // 
     },
     methods: {
         logOut() {
@@ -27,52 +33,6 @@ export default {
                 window.location.reload(); // força recarregamento após a navegação
             });
         },
-        removeElementosObsoletos() {
-            document.getElementById('bootstrap-css').remove();
-        }
     }
 }
 </script>
-
-<style scoped>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    padding: 10px 20px;
-    color: white;
-    margin-bottom: 5%;
-}
-
-.navbar .logo {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.navbar .menu {
-    display: flex;
-    gap: 15px;
-}
-
-.navbar .menu a {
-    color: white;
-    text-decoration: none;
-    font-size: 22px;
-}
-
-.navbar .menu a:hover {
-    opacity: 0.7;
-}
-
-.logo a {
-    text-decoration: none !important;
-    color: white !important;
-}
-</style>

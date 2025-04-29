@@ -1,0 +1,82 @@
+body {
+    padding: 20px;
+    background-color: #fff;
+}
+
+.container-custom {
+    border-radius: 10px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.section {
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.form-title,
+.table-title {
+    color: purple;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.btn-search {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-clear {
+    background-color: #d3d3d3;
+    color: #000;
+}
+
+.btn-edit {
+    background-color: #28a745;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    width: 70px;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    width: 70px;
+}
+
+.logo {
+    max-width: 150px;
+    margin-bottom: 10px;
+}
+
+table th,
+table td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* Estilos para a paginação */
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-pagination {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.btn-pagination:disabled {
+    background-color: #d3d3d3;
+    cursor: not-allowed;
+}

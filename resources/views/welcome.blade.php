@@ -9,6 +9,7 @@
     <link rel="icon" type="image/x-icon" href="{{asset('images/upd8.png')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/master.css') }}">
 </head>
 
 <body>
@@ -21,4 +22,5 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="sweetalert2.all.min.js"></script>
+
 </html>
