@@ -7,9 +7,19 @@ use Illuminate\Database\Eloquent\Collection;
 
 class CidadesRepository
 {
-    public function consultar_db(): Collection
+    public function consultar_db(array $dados = []): Collection
     {
-        return Cidade::all();
+        $query = Cidade::query();
+
+        if (isset($dados['nome']) && !empty($dados['nome'])) {
+            $query->where('cidades.nome', $dados['nome']);
+        }
+
+        if (isset($dados['estado']) && !empty($dados['estado'])) {
+            $query->where('cidades.estado', $dados['estado']);
+        }
+
+        return $query->get();
     }
 
     public function registrar_db(array $dados): Cidade

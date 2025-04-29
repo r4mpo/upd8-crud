@@ -20,7 +20,7 @@ class ConsultarService extends DefaultService
     public function consultar(): ResponseDTO
     {
         try {
-            $resposta_db = $this->cidades_repository->consultar_db();
+            $resposta_db = $this->cidades_repository->consultar_db($_GET);
             $resposta_db = empty($resposta_db) ? false : $resposta_db;
             $resposta = $this->montar_resposta($resposta_db, $resposta_db, $this->mensagem_nao_encontrada);
             $this->definir_dados_resposta($resposta);

@@ -4,6 +4,7 @@ import Home from './../templates/Home.vue';
 import Login from './../templates/Login.vue';
 import ConsultaClientes from '../templates/Clientes/ConsultaClientes.vue';
 import ConsultaRepresentantes from '../templates/Representantes/ConsultaRepresentantes.vue';
+import ConsultaCidades from '../templates/Cidades/ConsultaCidades.vue';
 
 const routes = [
     { 
@@ -23,6 +24,11 @@ const routes = [
     {
         path: '/representantes/consulta',
         component: ConsultaRepresentantes,
+        meta: { requiresAuth: true }
+    },
+    {
+        path: '/cidades/consulta',
+        component: ConsultaCidades,
         meta: { requiresAuth: true }
     },
 ];
