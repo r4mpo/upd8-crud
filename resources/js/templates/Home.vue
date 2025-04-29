@@ -55,7 +55,7 @@ export default {
           icon: 'fas fa-users',
           actions: [
             { label: 'Consultar', route: '/clientes/consulta', icon: 'fas fa-search' },
-            { label: 'Registrar', route: '/clientes/registra', icon: 'fas fa-plus-circle' },
+            { label: 'Registrar', route: '/clientes/visualiza', icon: 'fas fa-plus-circle' },
           ],
         },
         {

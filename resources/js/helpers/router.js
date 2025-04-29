@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from './../templates/Home.vue';
 import Login from './../templates/Login.vue';
 import ConsultaClientes from '../templates/Clientes/ConsultaClientes.vue';
-import RegistraClientes from '../templates/Clientes/RegistraClientes.vue';
+import VisualizaClientes from '../templates/Clientes/VisualizaClientes.vue';
 import ConsultaRepresentantes from '../templates/Representantes/ConsultaRepresentantes.vue';
 import ConsultaCidades from '../templates/Cidades/ConsultaCidades.vue';
 
@@ -26,9 +26,9 @@ const routes = [
         meta: { requiresAuth: true }
     },
     {
-        path: '/clientes/registra/:id?',
-        name: 'registrar_clientes',
-        component: RegistraClientes,
+        path: '/clientes/visualiza/:id?',
+        name: 'visualizar_clientes',
+        component: VisualizaClientes,
         meta: { requiresAuth: true }
     },
     {

@@ -13,7 +13,7 @@ import DBForm from '../../components/DBForms/ClientesDBForm.vue';
 import { getDados, postDados, putDados, deleteDados } from '../../helpers/axios';
 
 export default {
-    name: 'RegistraClientes',
+    name: 'VisualizaClientes',
     components: { Navbar, DBForm },
     data() {
         return {

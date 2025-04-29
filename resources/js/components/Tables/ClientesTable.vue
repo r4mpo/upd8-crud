@@ -23,12 +23,9 @@
                 </tr>
                 <tr v-else v-for="cliente in paginatedClientes" :key="cliente.id">
                     <td>
-                        <button class="btn btn-edit mb-1" @click="editarCliente(cliente)">
-                            <i class="bi bi-pencil-square"></i> Editar
+                        <button class="btn btn-primary mb-1" @click="visualizarCliente(cliente)">
+                            <i class="bi bi-eye-fill"></i> Visualizar
                         </button><br />
-                        <button class="btn btn-delete" @click="excluirCliente(cliente)">
-                            <i class="bi bi-trash3"></i> Excluir
-                        </button>
                     </td>
                     <td>{{ cliente.nome }}</td>
                     <td>{{ cliente.cpf }}</td>
@@ -57,12 +54,9 @@ export default {
         totalPages: Number
     },
     methods: {
-        editarCliente(cliente) {
-            this.$router.push('/clientes/registra/' + cliente.id);
+        visualizarCliente(cliente) {
+            this.$router.push('/clientes/visualiza/' + cliente.id);
 
-        },
-        excluirCliente(cliente) {
-            this.$router.push('/clientes/registra/' + cliente.id);
         },
         changePage(pageNumber) {
             this.$emit('change-page', pageNumber);
