@@ -9,25 +9,30 @@ import ConsultaCidades from '../templates/Cidades/ConsultaCidades.vue';
 const routes = [
     { 
         path: '/login', 
+        name: 'login',
         component: Login 
     },
     {
         path: '/',
+        name: 'home',
         component: Home,
         meta: { requiresAuth: true }
     },
     {
         path: '/clientes/consulta',
+        name: 'consultar_clientes',
         component: ConsultaClientes,
         meta: { requiresAuth: true }
     },
     {
         path: '/representantes/consulta',
+        name: 'consultar_representantes',
         component: ConsultaRepresentantes,
         meta: { requiresAuth: true }
     },
     {
         path: '/cidades/consulta',
+        name: 'consultar_cidades',
         component: ConsultaCidades,
         meta: { requiresAuth: true }
     },
