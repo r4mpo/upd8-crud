@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 import Home from './../templates/Home.vue';
 import Login from './../templates/Login.vue';
-import Consulta from '../templates/Clientes/Consulta.vue';
+import ConsultaClientes from '../templates/Clientes/ConsultaClientes.vue';
 
 const routes = [
     { 
@@ -16,7 +16,7 @@ const routes = [
     },
     {
         path: '/clientes/consulta',
-        component: Consulta,
+        component: ConsultaClientes,
         meta: { requiresAuth: true }
     },
 ];
