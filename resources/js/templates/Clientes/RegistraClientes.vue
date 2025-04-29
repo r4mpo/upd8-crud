@@ -1,18 +1,19 @@
 <template>
     <div class="container-custom">
         <Navbar />
-        <DBForm :campos="campos" :estados="estados" :cidades="cidades" @registrar-clientes="registrarClientes"
-            @limpar-campos="limparFiltros" @carregar-cidades="carregarCidades" />
+        <DBForm :campos="campos" :estados="estados" :cidades="cidades" :modoEdicao="modoEdicao"
+            @registrar-clientes="modoEdicao ? atualizarCliente() : registrarClientes()" @limpar-campos="limparCampos"
+            @carregar-cidades="carregarCidades" @excluir-cliente="excluirCliente" />
     </div>
 </template>
 
 <script>
 import Navbar from '../../components/Navbar.vue';
 import DBForm from '../../components/DBForms/ClientesDBForm.vue';
-import { getDados, postDados } from '../../helpers/axios';
+import { getDados, postDados, putDados, deleteDados } from '../../helpers/axios';
 
 export default {
-    name: "RegistraClientes",
+    name: 'RegistraClientes',
     components: { Navbar, DBForm },
     data() {
         return {
@@ -28,17 +29,19 @@ export default {
                 icone: 'error',
                 titulo: 'Ops...',
                 status: false,
-                mensagem: 'Houve um erro inesperado',
+                mensagem: 'Houve um erro inesperado'
             },
             estados: [],
             cidades: [],
+            modoEdicao: false
         };
     },
-    computed: {
-        //
-    },
-    mounted() {
-        this.carregarEstados();
+    async mounted() {
+        await this.carregarEstados();
+        if (this.$route.params.id) {
+            this.modoEdicao = true;
+            await this.carregarCliente(this.$route.params.id);
+        }
     },
     methods: {
         async carregarEstados() {
@@ -46,7 +49,10 @@ export default {
                 const response = await getDados('renders/combo-box-estados');
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(response.resposta, 'text/html');
-                this.estados = [...doc.querySelectorAll('option')].filter(opt => opt.value).map(opt => ({ uf: opt.value, nome: opt.textContent }));
+                this.estados = [...doc.querySelectorAll('option')].filter(opt => opt.value).map(opt => ({
+                    uf: opt.value,
+                    nome: opt.textContent
+                }));
             } catch (error) {
                 console.error('Erro ao carregar estados:', error);
             }
@@ -60,22 +66,47 @@ export default {
                 const response = await getDados('renders/combo-box-cidades');
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(response.resposta, 'text/html');
-                this.cidades = [...doc.querySelectorAll('option')].filter(opt => opt.value && opt.dataset.uf === this.campos.estado).map(opt => ({ id: opt.value, uf: opt.dataset.uf, nome: opt.textContent }));
+                this.cidades = [...doc.querySelectorAll('option')].filter(opt => opt.value && opt.dataset.uf === this.campos.estado).map(opt => ({
+                    id: opt.value,
+                    uf: opt.dataset.uf,
+                    nome: opt.textContent
+                }));
             } catch (error) {
                 console.error('Erro ao carregar cidades:', error);
             }
         },
-        async enviarDados(campos) {
+        async carregarCliente(id) {
             try {
-                const response = await postDados('clientes', campos);
-                if (response.codigo_resposta == 111) {
-                    this.definirRetorno('success', true, 'Sucesso!', 'Informações dos clientes atualizadas com sucesso!');
+                const response = await getDados(`clientes/${id}`);
+                if (response.codigo_resposta === 111) {
+
+                   this.campos = {
+                        cpf: response.resposta.cpf,
+                        nome: response.resposta.nome,
+                        sexo: response.resposta.sexo,
+                        estado: response.resposta.estado,
+                        endereco: response.resposta.endereco,
+                        cidade_id: response.resposta.cidade_id,
+                        data_nascimento: response.resposta.data_nascimento
+                    }
+
+                    await this.carregarCidades();
+                }
+            } catch (error) {
+                console.error('Erro ao carregar cliente:', error);
+            }
+        },
+        async enviarDados(campos, metodo) {
+            try {
+                const response = await metodo(campos);
+                if (response.codigo_resposta === 111) {
+                    this.definirRetorno('success', true, 'Sucesso!', 'Dados processados com sucesso!');
                 }
             } catch (error) {
                 let mensagem = 'Houve um erro interno...';
-                if (error.response.data.resposta) {
-                    let detalhes_erro = error.response.data.resposta;
-                    mensagem = Array.isArray(detalhes_erro) ? (detalhes_erro).join('\n') : detalhes_erro;
+                if (error.response?.data?.resposta) {
+                    const detalhes_erro = error.response.data.resposta;
+                    mensagem = Array.isArray(detalhes_erro) ? detalhes_erro.join('\n') : detalhes_erro;
                 }
                 this.definirRetorno('error', false, 'Erro!', mensagem);
             } finally {
@@ -84,44 +115,55 @@ export default {
                     text: this.retorno.mensagem,
                     icon: this.retorno.icone
                 });
-            }
 
-            if (this.retorno.status) {
-                setTimeout(() => {
-                    this.redirecionar();
-                }, 3000);
+                if (this.retorno.status) {
+                    setTimeout(() => this.redirecionar(), 1000);
+                }
             }
         },
         registrarClientes() {
-            const campos = {
-                ...this.campos,
-                cpf: this.campos.cpf.replace(/\D/g, '')
-            };
-            this.enviarDados(campos);
+            const campos = { ...this.campos, cpf: this.campos.cpf.replace(/\D/g, '') };
+            this.enviarDados(campos, (dados) => postDados('clientes', dados));
         },
-        redirecionar() {
-            this.$router.push('/clientes/consulta').then(() => {
-                window.location.reload();
+        atualizarCliente() {
+            const campos = { ...this.campos, cpf: this.campos.cpf.replace(/\D/g, '') };
+            this.enviarDados(campos, (dados) => putDados(`clientes/${this.$route.params.id}`, dados));
+        },
+        excluirCliente() {
+            Swal.fire({
+                title: 'Tem certeza?',
+                text: 'Essa ação não poderá ser desfeita!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Sim, excluir!'
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    try {
+                        const response = await deleteDados(`clientes/${this.$route.params.id}`);
+                        if (response.codigo_resposta === 111) {
+                            this.definirRetorno('success', true, 'Excluído!', 'Cliente excluído com sucesso.');
+                            setTimeout(() => this.redirecionar(), 2000);
+                        }
+                    } catch (error) {
+                        Swal.fire('Erro!', 'Erro ao excluir cliente.', 'error');
+                    }
+                }
             });
         },
-        definirRetorno(icone, status, titulo, mensagem) {
-            this.retorno.icone = icone;
-            this.retorno.status = status;
-            this.retorno.titulo = titulo;
-            this.retorno.mensagem = mensagem
+        redirecionar() {
+            this.$router.push('/clientes/consulta').then(() => window.location.reload());
         },
-        limparFiltros() {
+        definirRetorno(icone, status, titulo, mensagem) {
+            this.retorno = { icone, status, titulo, mensagem };
+        },
+        limparCampos() {
             this.campos = {
-                cpf: '',
-                nome: '',
-                data_nascimento: '',
-                sexo: '',
-                estado: '',
-                cidade_id: ''
+                cpf: '', nome: '', data_nascimento: '', sexo: '', estado: '', cidade_id: ''
             };
             this.cidades = [];
-            this.carregarClientes();
-        },
+        }
     }
 };
 </script>

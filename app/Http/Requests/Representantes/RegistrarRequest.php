@@ -23,12 +23,12 @@ class RegistrarRequest extends FormRequest
     public function rules()
     {
         $regras_resposta = [
-            "cpf" => "required|string|size:11|unique:representantes,cpf",
+            "cpf" => "required|string|size:11",
             "nome" => "required|string|max:100",
             "data_nascimento" => "required|date|date_format:Y-m-d",
             "sexo" => "required|in:M,F",
             "telefone" => "nullable",
-            "email" => "required|email|unique:representantes,email",
+            "email" => "required|email",
             "endereco" => "required|string|max:60",
             "estado" => "required|string|size:2|in:" . implode(",", array_keys(config("estados"))),
             "cidade_id" => "required|exists:cidades,id",

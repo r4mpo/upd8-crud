@@ -26,7 +26,7 @@ const routes = [
         meta: { requiresAuth: true }
     },
     {
-        path: '/clientes/registra',
+        path: '/clientes/registra/:id?',
         name: 'registrar_clientes',
         component: RegistraClientes,
         meta: { requiresAuth: true }

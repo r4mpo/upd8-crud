@@ -23,7 +23,7 @@ class AtualizarRequest extends FormRequest
     public function rules()
     {
         $regras_resposta = [
-            "cpf" => "string|size:11|unique:clientes,cpf",
+            "cpf" => "string|size:11",
             "nome" => "string|max:100",
             "data_nascimento" => "date|date_format:Y-m-d",
             "sexo" => "in:M,F",

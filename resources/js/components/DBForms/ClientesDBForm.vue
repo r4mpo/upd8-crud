@@ -69,12 +69,20 @@
             </div>
 
             <div class="row mb-3">
-                <div class="col-md-6">
+                <div class="col-md-6" v-if="!modoEdicao">
                     <button type="submit" class="btn btn-search me-2">
                         <i class="bi bi-plus-square"></i> Registrar
                     </button>
-                    <button type="reset" class="btn btn-clear">
+                    <button type="reset" class="btn btn-clear me-2">
                         <i class="bi bi-x-circle-fill"></i> Limpar
+                    </button>
+                </div>
+                <div class="col-md-6" v-if="modoEdicao">
+                    <button type="submit" class="btn btn-search me-2">
+                        <i class="bi bi-plus-square"></i> Atualizar
+                    </button>
+                    <button type="button" class="btn btn-danger" @click="$emit('excluir-cliente')">
+                        <i class="bi bi-trash-fill"></i> Excluir
                     </button>
                 </div>
             </div>
@@ -100,6 +108,7 @@ export default {
         campos: Object,
         estados: Array,
         cidades: Array,
+        modoEdicao: Boolean
     },
     methods: {
         validarFormulario() {

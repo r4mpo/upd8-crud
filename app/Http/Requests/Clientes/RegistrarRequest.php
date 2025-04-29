@@ -23,7 +23,7 @@ class RegistrarRequest extends FormRequest
     public function rules()
     {
         $regras_resposta = [
-            "cpf" => "required|string|size:11|unique:clientes,cpf",
+            "cpf" => "required|string|size:11",
             "nome" => "required|string|max:100",
             "data_nascimento" => "required|date|date_format:Y-m-d",
             "sexo" => "required|in:M,F",

@@ -58,10 +58,11 @@ export default {
     },
     methods: {
         editarCliente(cliente) {
-            console.log('Editar cliente:', cliente);
+            this.$router.push('/clientes/registra/' + cliente.id);
+
         },
         excluirCliente(cliente) {
-            console.log('Excluir cliente:', cliente);
+            this.$router.push('/clientes/registra/' + cliente.id);
         },
         changePage(pageNumber) {
             this.$emit('change-page', pageNumber);

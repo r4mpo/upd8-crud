@@ -23,12 +23,12 @@ class AtualizarRequest extends FormRequest
     public function rules()
     {
         $regras_resposta = [
-            "cpf" => "string|size:11|unique:representantes,cpf",
+            "cpf" => "string|size:11",
             "nome" => "string|max:100",
             "data_nascimento" => "date|date_format:Y-m-d",
             "sexo" => "in:M,F",
             "telefone" => "nullable",
-            "email" => "email|unique:representantes,email",
+            "email" => "email",
             "endereco" => "string|max:60",
             "estado" => "string|size:2|in:" . implode(",", array_keys(config("estados"))),
             "cidade_id" => "exists:cidades,id",
