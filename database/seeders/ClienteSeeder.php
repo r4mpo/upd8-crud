@@ -51,8 +51,8 @@ class ClienteSeeder extends Seeder
                 'data_nascimento' => '1992-07-19',
                 'sexo' => 'F',
                 'endereco' => 'Rua Alegre, 321',
-                'estado' => 'SP',
-                'cidade_id' => 1,
+                'estado' => 'BA',
+                'cidade_id' => 4,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -73,8 +73,8 @@ class ClienteSeeder extends Seeder
                 'data_nascimento' => '1995-04-12',
                 'sexo' => 'F',
                 'endereco' => 'Rua da Paz, 789',
-                'estado' => 'RJ',
-                'cidade_id' => 2,
+                'estado' => 'CE',
+                'cidade_id' => 5,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -84,8 +84,8 @@ class ClienteSeeder extends Seeder
                 'data_nascimento' => '1982-01-05',
                 'sexo' => 'M',
                 'endereco' => 'Travessa Sol, 12',
-                'estado' => 'MG',
-                'cidade_id' => 3,
+                'estado' => 'PR',
+                'cidade_id' => 6,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -95,8 +95,8 @@ class ClienteSeeder extends Seeder
                 'data_nascimento' => '1991-03-18',
                 'sexo' => 'F',
                 'endereco' => 'Rua das Palmeiras, 50',
-                'estado' => 'BA',
-                'cidade_id' => 4,
+                'estado' => 'AM',
+                'cidade_id' => 7,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -106,8 +106,8 @@ class ClienteSeeder extends Seeder
                 'data_nascimento' => '1987-10-11',
                 'sexo' => 'M',
                 'endereco' => 'Av. Atlântica, 900',
-                'estado' => 'CE',
-                'cidade_id' => 5,
+                'estado' => 'PE',
+                'cidade_id' => 8,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -122,23 +122,8 @@ class ClienteSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            // A partir daqui, dados variados para chegar a 50
         ];
-        
-        for ($i = 11; $i <= 50; $i++) {
-            $clientes[] = [
-                'cpf' => str_pad($i, 11, '0', STR_PAD_LEFT),
-                'nome' => "Cliente {$i}",
-                'data_nascimento' => now()->subYears(rand(20, 50))->format('Y-m-d'),
-                'sexo' => rand(0, 1) ? 'M' : 'F',
-                'endereco' => "Rua Cliente {$i}, " . rand(1, 999),
-                'estado' => ['SP', 'RJ', 'MG', 'BA', 'CE', 'RS', 'PE', 'PR', 'SC', 'GO'][array_rand(['SP', 'RJ', 'MG', 'BA', 'CE', 'RS', 'PE', 'PR', 'SC', 'GO'])],
-                'cidade_id' => rand(1, 5),
-                'created_at' => now(),
-                'updated_at' => now(),
-            ];
-        }
-                
+                        
         DB::table('clientes')->insert($clientes);
     }
 }
