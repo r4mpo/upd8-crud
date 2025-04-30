@@ -5,9 +5,72 @@ namespace App\Swagger\Representantes;
 /**
  * @OA\Get(
  *     path="/representantes",
- *     summary="Listar todos os representantes",
+ *     summary="Listar todos os representantes com filtros opcionais",
  *     tags={"Representantes"},
- *     security={{"bearerAuth": {}}}, 
+ *     security={{"bearerAuth": {}}},
+ *     @OA\Parameter(
+ *         name="cpf",
+ *         in="query",
+ *         description="Filtrar por CPF",
+ *         required=false,
+ *         @OA\Schema(type="string", example="111.111.111-11")
+ *     ),
+ *     @OA\Parameter(
+ *         name="nome",
+ *         in="query",
+ *         description="Filtrar por nome",
+ *         required=false,
+ *         @OA\Schema(type="string", example="João")
+ *     ),
+ *     @OA\Parameter(
+ *         name="endereco",
+ *         in="query",
+ *         description="Filtrar por endereço",
+ *         required=false,
+ *         @OA\Schema(type="string", example="Rua das Flores")
+ *     ),
+ *     @OA\Parameter(
+ *         name="data_nascimento",
+ *         in="query",
+ *         description="Filtrar por data de nascimento",
+ *         required=false,
+ *         @OA\Schema(type="string", format="date", example="2001-01-01")
+ *     ),
+ *     @OA\Parameter(
+ *         name="sexo",
+ *         in="query",
+ *         description="Filtrar por sexo",
+ *         required=false,
+ *         @OA\Schema(type="string", example="Masculino")
+ *     ),
+ *     @OA\Parameter(
+ *         name="estado",
+ *         in="query",
+ *         description="Filtrar por estado",
+ *         required=false,
+ *         @OA\Schema(type="string", example="SP")
+ *     ),
+ *     @OA\Parameter(
+ *         name="cidade_id",
+ *         in="query",
+ *         description="Filtrar por cidade_id",
+ *         required=false,
+ *         @OA\Schema(type="integer", example=1)
+ *     ),
+ *     @OA\Parameter(
+ *         name="telefone",
+ *         in="query",
+ *         description="Filtrar por telefone",
+ *         required=false,
+ *         @OA\Schema(type="string", example="(11) 11111-1111")
+ *     ),
+ *     @OA\Parameter(
+ *         name="email",
+ *         in="query",
+ *         description="Filtrar por email",
+ *         required=false,
+ *         @OA\Schema(type="string", example="teste@teste.com")
+ *     ),
  *     @OA\Response(
  *         response=200,
  *         description="Lista de representantes",
@@ -17,19 +80,16 @@ namespace App\Swagger\Representantes;
  *                 type="array",
  *                 @OA\Items(
  *                     type="object",
- *                     @OA\Property(property="id", type="integer", example=1),
- *                     @OA\Property(property="created_at", type="string", format="date-time", example="2025-04-27T18:37:17.000000Z"),
- *                     @OA\Property(property="updated_at", type="string", format="date-time", example="2025-04-27T18:37:17.000000Z"),
- *                     @OA\Property(property="cpf", type="string", example="12345678901"),
- *                     @OA\Property(property="nome", type="string", example="João Silva"),
- *                     @OA\Property(property="data_nascimento", type="string", format="date", example="1990-05-15"),
- *                     @OA\Property(property="sexo", type="string", example="M"),
- *                     @OA\Property(property="email", type="string", example="exemplo@swagger"),
- *                     @OA\Property(property="telefone", type="string", example="(16) 3661-4912"),
- *                     @OA\Property(property="endereco", type="string", example="Rua das Flores, 123"),
+ *                     @OA\Property(property="id", type="integer", example=8),
+ *                     @OA\Property(property="nome", type="string", example="Teste"),
+ *                     @OA\Property(property="endereco", type="string", example="Rua do Teste"),
+ *                     @OA\Property(property="cpf", type="string", example="111.111.111-11"),
+ *                     @OA\Property(property="data_nascimento", type="string", example="01/01/2001"),
+ *                     @OA\Property(property="sexo", type="string", example="Masculino"),
  *                     @OA\Property(property="estado", type="string", example="SP"),
- *                     @OA\Property(property="cidade_id", type="integer", example=1),
- *                     @OA\Property(property="deleted_at", type="string", nullable=true, example=null)
+ *                     @OA\Property(property="cidade", type="string", example="Batatais"),
+ *                     @OA\Property(property="telefone", type="string", example="(11) 11111-1111"),
+ *                     @OA\Property(property="email", type="string", example="teste.teste@teste.com")
  *                 )
  *             ),
  *             @OA\Property(property="codigo_resposta", type="integer", example=111)

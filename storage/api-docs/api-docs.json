@@ -806,8 +806,81 @@
                 "tags": [
                     "Clientes"
                 ],
-                "summary": "Listar todos os clientes",
+                "summary": "Listar todos os clientes com filtros opcionais",
                 "operationId": "d19c779174041974935bc48af4f42d5c",
+                "parameters": [
+                    {
+                        "name": "cpf",
+                        "in": "query",
+                        "description": "Filtrar por CPF",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "123.456.789-00"
+                        }
+                    },
+                    {
+                        "name": "nome",
+                        "in": "query",
+                        "description": "Filtrar por nome",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "João Silva"
+                        }
+                    },
+                    {
+                        "name": "endereco",
+                        "in": "query",
+                        "description": "Filtrar por endereço",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "Rua das Flores"
+                        }
+                    },
+                    {
+                        "name": "data_nascimento",
+                        "in": "query",
+                        "description": "Filtrar por data de nascimento",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date",
+                            "example": "1990-05-15"
+                        }
+                    },
+                    {
+                        "name": "sexo",
+                        "in": "query",
+                        "description": "Filtrar por sexo",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "Masculino"
+                        }
+                    },
+                    {
+                        "name": "estado",
+                        "in": "query",
+                        "description": "Filtrar por estado",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "SP"
+                        }
+                    },
+                    {
+                        "name": "cidade_id",
+                        "in": "query",
+                        "description": "Filtrar por cidade_id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Lista de clientes",
@@ -823,49 +896,33 @@
                                                         "type": "integer",
                                                         "example": 1
                                                     },
-                                                    "created_at": {
-                                                        "type": "string",
-                                                        "format": "date-time",
-                                                        "example": "2025-04-27T18:37:17.000000Z"
-                                                    },
-                                                    "updated_at": {
-                                                        "type": "string",
-                                                        "format": "date-time",
-                                                        "example": "2025-04-27T18:37:17.000000Z"
-                                                    },
-                                                    "cpf": {
-                                                        "type": "string",
-                                                        "example": "12345678901"
-                                                    },
                                                     "nome": {
                                                         "type": "string",
                                                         "example": "João Silva"
-                                                    },
-                                                    "data_nascimento": {
-                                                        "type": "string",
-                                                        "format": "date",
-                                                        "example": "1990-05-15"
-                                                    },
-                                                    "sexo": {
-                                                        "type": "string",
-                                                        "example": "M"
                                                     },
                                                     "endereco": {
                                                         "type": "string",
                                                         "example": "Rua das Flores, 123"
                                                     },
+                                                    "cpf": {
+                                                        "type": "string",
+                                                        "example": "123.456.789-00"
+                                                    },
+                                                    "data_nascimento": {
+                                                        "type": "string",
+                                                        "example": "01/01/2001"
+                                                    },
+                                                    "sexo": {
+                                                        "type": "string",
+                                                        "example": "Masculino"
+                                                    },
                                                     "estado": {
                                                         "type": "string",
                                                         "example": "SP"
                                                     },
-                                                    "cidade_id": {
-                                                        "type": "integer",
-                                                        "example": 1
-                                                    },
-                                                    "deleted_at": {
+                                                    "cidade": {
                                                         "type": "string",
-                                                        "example": null,
-                                                        "nullable": true
+                                                        "example": "Batatais"
                                                     }
                                                 },
                                                 "type": "object"
@@ -1666,8 +1723,101 @@
                 "tags": [
                     "Representantes"
                 ],
-                "summary": "Listar todos os representantes",
+                "summary": "Listar todos os representantes com filtros opcionais",
                 "operationId": "460f6e6d001c604fe0602b7dbda8c1f3",
+                "parameters": [
+                    {
+                        "name": "cpf",
+                        "in": "query",
+                        "description": "Filtrar por CPF",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "111.111.111-11"
+                        }
+                    },
+                    {
+                        "name": "nome",
+                        "in": "query",
+                        "description": "Filtrar por nome",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "João"
+                        }
+                    },
+                    {
+                        "name": "endereco",
+                        "in": "query",
+                        "description": "Filtrar por endereço",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "Rua das Flores"
+                        }
+                    },
+                    {
+                        "name": "data_nascimento",
+                        "in": "query",
+                        "description": "Filtrar por data de nascimento",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date",
+                            "example": "2001-01-01"
+                        }
+                    },
+                    {
+                        "name": "sexo",
+                        "in": "query",
+                        "description": "Filtrar por sexo",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "Masculino"
+                        }
+                    },
+                    {
+                        "name": "estado",
+                        "in": "query",
+                        "description": "Filtrar por estado",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "SP"
+                        }
+                    },
+                    {
+                        "name": "cidade_id",
+                        "in": "query",
+                        "description": "Filtrar por cidade_id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    },
+                    {
+                        "name": "telefone",
+                        "in": "query",
+                        "description": "Filtrar por telefone",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "(11) 11111-1111"
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "Filtrar por email",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "teste@teste.com"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Lista de representantes",
@@ -1681,59 +1831,43 @@
                                                 "properties": {
                                                     "id": {
                                                         "type": "integer",
-                                                        "example": 1
-                                                    },
-                                                    "created_at": {
-                                                        "type": "string",
-                                                        "format": "date-time",
-                                                        "example": "2025-04-27T18:37:17.000000Z"
-                                                    },
-                                                    "updated_at": {
-                                                        "type": "string",
-                                                        "format": "date-time",
-                                                        "example": "2025-04-27T18:37:17.000000Z"
-                                                    },
-                                                    "cpf": {
-                                                        "type": "string",
-                                                        "example": "12345678901"
+                                                        "example": 8
                                                     },
                                                     "nome": {
                                                         "type": "string",
-                                                        "example": "João Silva"
-                                                    },
-                                                    "data_nascimento": {
-                                                        "type": "string",
-                                                        "format": "date",
-                                                        "example": "1990-05-15"
-                                                    },
-                                                    "sexo": {
-                                                        "type": "string",
-                                                        "example": "M"
-                                                    },
-                                                    "email": {
-                                                        "type": "string",
-                                                        "example": "exemplo@swagger"
-                                                    },
-                                                    "telefone": {
-                                                        "type": "string",
-                                                        "example": "(16) 3661-4912"
+                                                        "example": "Teste"
                                                     },
                                                     "endereco": {
                                                         "type": "string",
-                                                        "example": "Rua das Flores, 123"
+                                                        "example": "Rua do Teste"
+                                                    },
+                                                    "cpf": {
+                                                        "type": "string",
+                                                        "example": "111.111.111-11"
+                                                    },
+                                                    "data_nascimento": {
+                                                        "type": "string",
+                                                        "example": "01/01/2001"
+                                                    },
+                                                    "sexo": {
+                                                        "type": "string",
+                                                        "example": "Masculino"
                                                     },
                                                     "estado": {
                                                         "type": "string",
                                                         "example": "SP"
                                                     },
-                                                    "cidade_id": {
-                                                        "type": "integer",
-                                                        "example": 1
-                                                    },
-                                                    "deleted_at": {
+                                                    "cidade": {
                                                         "type": "string",
-                                                        "example": null,
-                                                        "nullable": true
+                                                        "example": "Batatais"
+                                                    },
+                                                    "telefone": {
+                                                        "type": "string",
+                                                        "example": "(11) 11111-1111"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "example": "teste.teste@teste.com"
                                                     }
                                                 },
                                                 "type": "object"
