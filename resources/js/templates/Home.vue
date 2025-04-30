@@ -72,8 +72,8 @@ export default {
           title: 'Relatórios',
           icon: 'fas fa-chart-bar',
           actions: [
-            { label: 'Representantes por ID Cliente', route: '/representantes-por-id-cliente', icon: 'fas fa-id-card' },
-            { label: 'Filtrar por Cidade', route: '/filtrar-representantes-por-cidade', icon: 'fas fa-filter' },
+            { label: 'Representantes por ID Cliente', route: '/relatorios/representantes_clientes', icon: 'fas fa-id-card' },
+            { label: 'Filtrar por Cidade', route: '/relatorios/representantes_cidades', icon: 'fas fa-filter' },
           ],
         },
       ],
