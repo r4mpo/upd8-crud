@@ -7,6 +7,7 @@ import AnalisaClientes from '../templates/Clientes/AnalisaClientes.vue';
 import ConsultaRepresentantes from '../templates/Representantes/ConsultaRepresentantes.vue';
 import AnalisaRepresentantes from '../templates/Representantes/AnalisaRepresentantes.vue';
 import ConsultaCidades from '../templates/Cidades/ConsultaCidades.vue';
+import AnalisaCidades from '../templates/Cidades/AnalisaCidades.vue';
 
 const routes = [
     { 
@@ -48,6 +49,12 @@ const routes = [
         path: '/cidades/consulta',
         name: 'consultar_cidades',
         component: ConsultaCidades,
+        meta: { requiresAuth: true }
+    },
+    {
+        path: '/cidades/analisa/:id?',
+        name: 'analisar_cidades',
+        component: AnalisaCidades,
         meta: { requiresAuth: true }
     },
 ];

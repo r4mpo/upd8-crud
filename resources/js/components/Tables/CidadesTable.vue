@@ -18,12 +18,9 @@
                 </tr>
                 <tr v-else v-for="cidade in paginatedCidades" :key="cidade.id">
                     <td>
-                        <button class="btn btn-edit mb-1" @click="editarCidade(cidade)">
-                            <i class="bi bi-pencil-square"></i> Editar
+                        <button class="btn btn-primary mb-1" @click="analisarCidade(cidade)">
+                            <i class="bi bi-eye-fill"></i> Analisar
                         </button><br />
-                        <button class="btn btn-delete" @click="excluirCidade(cidade)">
-                            <i class="bi bi-trash3"></i> Excluir
-                        </button>
                     </td>
                     <td>{{ cidade.nome }}</td>
                     <td>{{ cidade.estado }}</td>
@@ -47,11 +44,8 @@ export default {
         totalPages: Number
     },
     methods: {
-        editarCidade(cidade) {
-            console.log('Editar cidade:', cidade);
-        },
-        excluirCidade(cidade) {
-            console.log('Excluir cidade:', cidade);
+        analisarCidade(cidade) {
+            this.$router.push('/cidades/analisa/' + cidade.id);
         },
         changePage(pageNumber) {
             this.$emit('change-page', pageNumber);

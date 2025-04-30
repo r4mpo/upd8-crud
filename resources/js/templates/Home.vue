@@ -46,7 +46,7 @@ export default {
           icon: 'fas fa-city',
           actions: [
             { label: 'Consultar', route: '/cidades/consulta', icon: 'fas fa-search' },
-            { label: 'Registrar', route: '/registrar-cidades', icon: 'fas fa-plus-circle' },
+            { label: 'Registrar', route: '/cidades/analisa', icon: 'fas fa-plus-circle' },
           ],
         },
         {

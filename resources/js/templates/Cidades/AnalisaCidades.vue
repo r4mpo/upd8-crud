@@ -1,31 +1,25 @@
 <template>
     <div class="container-custom">
         <Navbar />
-        <DBForm :campos="campos" :estados="estados" :cidades="cidades" :modoEdicao="modoEdicao"
-            @registrar-representantes="modoEdicao ? atualizarRepresentante() : registrarRepresentantes()" @limpar-campos="limparCampos"
-            @carregar-cidades="carregarCidades" @excluir-representante="excluirRepresentante" />
+        <DBForm :campos="campos" :estados="estados" :modoEdicao="modoEdicao"
+            @registrar-cidades="modoEdicao ? atualizarCidade() : registrarCidades()" @limpar-campos="limparCampos"
+            @excluir-cidade="excluirCidade" />
     </div>
 </template>
 
 <script>
 import Navbar from '../../components/Navbar.vue';
-import DBForm from '../../components/DBForms/RepresentantesDBForm.vue';
+import DBForm from '../../components/DBForms/CidadesDBForm.vue';
 import { getDados, postDados, putDados, deleteDados } from '../../helpers/axios';
 
 export default {
-    name: 'AnalisaRepresentantes',
+    name: 'AnalisaCidades',
     components: { Navbar, DBForm },
     data() {
         return {
             campos: {
-                cpf: '',
                 nome: '',
-                data_nascimento: '',
-                sexo: '',
                 estado: '',
-                cidade_id: '',
-                telefone: '',
-                email: ''
             },
             retorno: {
                 icone: 'error',
@@ -42,7 +36,7 @@ export default {
         await this.carregarEstados();
         if (this.$route.params.id) {
             this.modoEdicao = true;
-            await this.carregarRepresentante(this.$route.params.id);
+            await this.carregarCidade(this.$route.params.id);
         }
     },
     methods: {
@@ -59,45 +53,18 @@ export default {
                 console.error('Erro ao carregar estados:', error);
             }
         },
-        async carregarCidades() {
-            if (!this.campos.estado) {
-                this.cidades = [];
-                return;
-            }
+        async carregarCidade(id) {
             try {
-                const response = await getDados('renders/combo-box-cidades');
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(response.resposta, 'text/html');
-                this.cidades = [...doc.querySelectorAll('option')].filter(opt => opt.value && opt.dataset.uf === this.campos.estado).map(opt => ({
-                    id: opt.value,
-                    uf: opt.dataset.uf,
-                    nome: opt.textContent
-                }));
-            } catch (error) {
-                console.error('Erro ao carregar cidades:', error);
-            }
-        },
-        async carregarRepresentante(id) {
-            try {
-                const response = await getDados(`representantes/${id}`);
+                const response = await getDados(`cidades/${id}`);
                 if (response.codigo_resposta === 111) {
 
                    this.campos = {
-                        cpf: response.resposta.cpf,
                         nome: response.resposta.nome,
-                        sexo: response.resposta.sexo,
                         estado: response.resposta.estado,
-                        endereco: response.resposta.endereco,
-                        cidade_id: response.resposta.cidade_id,
-                        data_nascimento: response.resposta.data_nascimento,
-                        telefone: response.resposta.telefone,
-                        email: response.resposta.email
                     }
-
-                    await this.carregarCidades();
                 }
             } catch (error) {
-                console.error('Erro ao carregar representante:', error);
+                console.error('Erro ao carregar cidade:', error);
             }
         },
         async enviarDados(campos, metodo) {
@@ -125,15 +92,15 @@ export default {
                 }
             }
         },
-        registrarRepresentantes() {
-            const campos = { ...this.campos, cpf: this.campos.cpf.replace(/\D/g, '') };
-            this.enviarDados(campos, (dados) => postDados('representantes', dados));
+        registrarCidades() {
+            const campos = { ...this.campos };
+            this.enviarDados(campos, (dados) => postDados('cidades', dados));
         },
-        atualizarRepresentante() {
-            const campos = { ...this.campos, cpf: this.campos.cpf.replace(/\D/g, '') };
-            this.enviarDados(campos, (dados) => putDados(`representantes/${this.$route.params.id}`, dados));
+        atualizarCidade() {
+            const campos = { ...this.campos };
+            this.enviarDados(campos, (dados) => putDados(`cidades/${this.$route.params.id}`, dados));
         },
-        excluirRepresentante() {
+        excluirCidade() {
             Swal.fire({
                 title: 'Tem certeza?',
                 text: 'Essa ação não poderá ser desfeita!',
@@ -145,26 +112,26 @@ export default {
             }).then(async (result) => {
                 if (result.isConfirmed) {
                     try {
-                        const response = await deleteDados(`representantes/${this.$route.params.id}`);
+                        const response = await deleteDados(`cidades/${this.$route.params.id}`);
                         if (response.codigo_resposta === 111) {
-                            this.definirRetorno('success', true, 'Excluído!', 'Representante excluído com sucesso.');
+                            this.definirRetorno('success', true, 'Excluído!', 'Cidade excluído com sucesso.');
                             setTimeout(() => this.redirecionar(), 2000);
                         }
                     } catch (error) {
-                        Swal.fire('Erro!', 'Erro ao excluir representante.', 'error');
+                        Swal.fire('Erro!', 'Erro ao excluir cidade.', 'error');
                     }
                 }
             });
         },
         redirecionar() {
-            this.$router.push('/representantes/consulta').then(() => window.location.reload());
+            this.$router.push('/cidades/consulta').then(() => window.location.reload());
         },
         definirRetorno(icone, status, titulo, mensagem) {
             this.retorno = { icone, status, titulo, mensagem };
         },
         limparCampos() {
             this.campos = {
-                cpf: '', nome: '', data_nascimento: '', sexo: '', estado: '', cidade_id: '', telefone: '', email: ''
+                nome: '', estado: ''
             };
             this.cidades = [];
         }

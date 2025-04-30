@@ -1,7 +1,7 @@
 <template>
     <div class="section">
         <h5 class="form-title">Analisar Representante</h5>
-        <form @submit.prevent="registrarRepresentantes" @reset="limparFiltros">
+        <form @submit.prevent="registrarRepresentantes" @reset="limparCampos">
             <div class="row mb-3">
                 <div class="col-md-3">
                     <label class="form-label">CPF :</label>
@@ -143,7 +143,7 @@ export default {
             if (!this.validarFormulario()) return;
             this.$emit('registrar-representantes');
         },
-        limparFiltros() {
+        limparCampos() {
             this.erros = {};
             this.$emit('limpar-campos');
         },
