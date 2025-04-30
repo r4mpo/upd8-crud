@@ -23,8 +23,8 @@
                 </tr>
                 <tr v-else v-for="cliente in paginatedClientes" :key="cliente.id">
                     <td>
-                        <button class="btn btn-primary mb-1" @click="visualizarCliente(cliente)">
-                            <i class="bi bi-eye-fill"></i> Visualizar
+                        <button class="btn btn-primary mb-1" @click="analisarCliente(cliente)">
+                            <i class="bi bi-eye-fill"></i> Analisar
                         </button><br />
                     </td>
                     <td>{{ cliente.nome }}</td>
@@ -54,9 +54,8 @@ export default {
         totalPages: Number
     },
     methods: {
-        visualizarCliente(cliente) {
-            this.$router.push('/clientes/visualiza/' + cliente.id);
-
+        analisarCliente(cliente) {
+            this.$router.push('/clientes/analisa/' + cliente.id);
         },
         changePage(pageNumber) {
             this.$emit('change-page', pageNumber);

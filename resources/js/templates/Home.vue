@@ -55,7 +55,7 @@ export default {
           icon: 'fas fa-users',
           actions: [
             { label: 'Consultar', route: '/clientes/consulta', icon: 'fas fa-search' },
-            { label: 'Registrar', route: '/clientes/visualiza', icon: 'fas fa-plus-circle' },
+            { label: 'Registrar', route: '/clientes/analisa', icon: 'fas fa-plus-circle' },
           ],
         },
         {
@@ -64,7 +64,7 @@ export default {
           icon: 'fas fa-user-tie',
           actions: [
             { label: 'Consultar', route: '/representantes/consulta', icon: 'fas fa-search' },
-            { label: 'Registrar', route: '/registrar-representantes', icon: 'fas fa-plus-circle' },
+            { label: 'Registrar', route: '/representantes/analisa', icon: 'fas fa-plus-circle' },
           ],
         },
         {

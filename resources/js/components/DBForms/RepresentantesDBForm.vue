@@ -1,7 +1,7 @@
 <template>
     <div class="section">
-        <h5 class="form-title">Analisar Cliente</h5>
-        <form @submit.prevent="registrarClientes" @reset="limparFiltros">
+        <h5 class="form-title">Analisar Representante</h5>
+        <form @submit.prevent="registrarRepresentantes" @reset="limparFiltros">
             <div class="row mb-3">
                 <div class="col-md-3">
                     <label class="form-label">CPF :</label>
@@ -37,6 +37,19 @@
                         <label class="form-check-label" for="feminino">Feminino</label>
                     </div>
                     <div v-if="erros.sexo" class="invalid-feedback d-block">{{ erros.sexo }}</div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label class="form-label">Telefone :</label>
+                    <input type="text" class="form-control" :class="{ 'is-invalid': erros.telefone }" v-mask="'(##) #####-####'" v-model="campos.telefone" placeholder="Digite o telefone" />
+                    <div v-if="erros.telefone" class="invalid-feedback">{{ erros.telefone }}</div>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">E-mail :</label>
+                    <input type="text" class="form-control" :class="{ 'is-invalid': erros.email }" v-model="campos.email" placeholder="Digite o e-mail" />
+                    <div v-if="erros.email" class="invalid-feedback">{{ erros.email }}</div>
                 </div>
             </div>
 
@@ -81,7 +94,7 @@
                     <button type="submit" class="btn btn-search me-2">
                         <i class="bi bi-pencil-square"></i> Atualizar
                     </button>
-                    <button type="button" class="btn btn-danger" @click="$emit('excluir-cliente')">
+                    <button type="button" class="btn btn-danger" @click="$emit('excluir-representante')">
                         <i class="bi bi-trash-fill"></i> Excluir
                     </button>
                 </div>
@@ -121,12 +134,14 @@ export default {
             if (!this.campos.endereco) this.erros.endereco = 'Endereço é obrigatório';
             if (!this.campos.estado) this.erros.estado = 'Selecione o estado';
             if (!this.campos.cidade_id) this.erros.cidade_id = 'Selecione a cidade';
+            if (!this.campos.telefone) this.erros.telefone = 'Telefone é obrigatório';
+            if (!this.campos.email) this.erros.email = 'E-mail é obrigatório';
 
             return Object.keys(this.erros).length === 0;
         },
-        registrarClientes() {
+        registrarRepresentantes() {
             if (!this.validarFormulario()) return;
-            this.$emit('registrar-clientes');
+            this.$emit('registrar-representantes');
         },
         limparFiltros() {
             this.erros = {};

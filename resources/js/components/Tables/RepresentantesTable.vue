@@ -25,12 +25,9 @@
                 </tr>
                 <tr v-else v-for="representante in paginatedRepresentantes" :key="representante.id">
                     <td>
-                        <button class="btn btn-edit mb-1" @click="editarRepresentante(representante)">
-                            <i class="bi bi-pencil-square"></i> Editar
+                        <button class="btn btn-primary mb-1" @click="analisarRepresentante(representante)">
+                            <i class="bi bi-eye-fill"></i> Analisar
                         </button><br />
-                        <button class="btn btn-delete" @click="excluirRepresentante(representante)">
-                            <i class="bi bi-trash3"></i> Excluir
-                        </button>
                     </td>
                     <td>{{ representante.nome }}</td>
                     <td>{{ representante.cpf }}</td>
@@ -62,11 +59,8 @@ export default {
         totalPages: Number
     },
     methods: {
-        editarRepresentante(representante) {
-            console.log('Editar representante:', representante);
-        },
-        excluirRepresentante(representante) {
-            console.log('Excluir representante:', representante);
+        analisarRepresentante(representante) {
+            this.$router.push('/representantes/analisa/' + representante.id);
         },
         changePage(pageNumber) {
             this.$emit('change-page', pageNumber);

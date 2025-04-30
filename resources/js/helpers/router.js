@@ -3,8 +3,9 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from './../templates/Home.vue';
 import Login from './../templates/Login.vue';
 import ConsultaClientes from '../templates/Clientes/ConsultaClientes.vue';
-import VisualizaClientes from '../templates/Clientes/VisualizaClientes.vue';
+import AnalisaClientes from '../templates/Clientes/AnalisaClientes.vue';
 import ConsultaRepresentantes from '../templates/Representantes/ConsultaRepresentantes.vue';
+import AnalisaRepresentantes from '../templates/Representantes/AnalisaRepresentantes.vue';
 import ConsultaCidades from '../templates/Cidades/ConsultaCidades.vue';
 
 const routes = [
@@ -26,15 +27,21 @@ const routes = [
         meta: { requiresAuth: true }
     },
     {
-        path: '/clientes/visualiza/:id?',
-        name: 'visualizar_clientes',
-        component: VisualizaClientes,
+        path: '/clientes/analisa/:id?',
+        name: 'analisar_clientes',
+        component: AnalisaClientes,
         meta: { requiresAuth: true }
     },
     {
         path: '/representantes/consulta',
         name: 'consultar_representantes',
         component: ConsultaRepresentantes,
+        meta: { requiresAuth: true }
+    },
+    {
+        path: '/representantes/analisa/:id?',
+        name: 'analisar_representantes',
+        component: AnalisaRepresentantes,
         meta: { requiresAuth: true }
     },
     {
