@@ -1269,6 +1269,236 @@
                 }
             }
         },
+        "/relatorios/representantes-por-id-cidade/{id}": {
+            "get": {
+                "tags": [
+                    "Relatórios"
+                ],
+                "summary": "Listar representantes por ID da cidade",
+                "operationId": "e131fc46f92c577bc5227f801816130e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID da cidade",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Representantes encontrados para a cidade informada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 4
+                                                    },
+                                                    "nome": {
+                                                        "type": "string",
+                                                        "example": "Fernanda Representante 1"
+                                                    },
+                                                    "endereco": {
+                                                        "type": "string",
+                                                        "example": "Av. Leste, 400"
+                                                    },
+                                                    "telefone": {
+                                                        "type": "string",
+                                                        "example": "(21) 94444-4444"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "example": "fernanda.rep1@exemplo.com"
+                                                    },
+                                                    "cidade": {
+                                                        "type": "string",
+                                                        "example": "Rio de Janeiro"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 111
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Token inválido ou não enviado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Não autorizado."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Erro ao processar a requisição."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/relatorios/representantes-por-id-cliente/{id}": {
+            "get": {
+                "tags": [
+                    "Relatórios"
+                ],
+                "summary": "Listar representantes por ID do cliente",
+                "operationId": "d06c92a321c859b489006b236c269285",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do cliente",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Representantes encontrados para o cliente informado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "nome": {
+                                                        "type": "string",
+                                                        "example": "José Representante 1"
+                                                    },
+                                                    "endereco": {
+                                                        "type": "string",
+                                                        "example": "Rua A, 100"
+                                                    },
+                                                    "telefone": {
+                                                        "type": "string",
+                                                        "example": "(11) 91111-1111"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "example": "jose.rep1@exemplo.com"
+                                                    },
+                                                    "cidade": {
+                                                        "type": "string",
+                                                        "example": "São Paulo"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 111
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Token inválido ou não enviado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Não autorizado."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno no servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "resposta": {
+                                            "type": "string",
+                                            "example": "Erro ao processar a requisição."
+                                        },
+                                        "codigo_resposta": {
+                                            "type": "integer",
+                                            "example": 333
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/renders/combo-box-cidades": {
             "get": {
                 "tags": [
@@ -2496,6 +2726,10 @@
         {
             "name": "Retorno Padrão",
             "description": "Retorno Padrão"
+        },
+        {
+            "name": "Relatórios",
+            "description": "Relatórios"
         },
         {
             "name": "Renders",

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c10fe69e-a648-41a4-9148-e10e9c1b9296",
+		"_postman_id": "077ea3a4-ec15-4fc1-a0c5-2a2ca57339d6",
 		"name": "API Laravel - upd8-crud",
 		"description": "Este projeto é uma base robusta e bem estruturada para aplicações em Laravel, concebido para seguir os princípios do SOLID e garantir a escalabilidade e manutenção a longo prazo. A arquitetura é voltada para modularidade, com componentes e serviços bem definidos, promovendo a reutilização de código e o baixo acoplamento entre as partes. A base inclui testes automatizados para garantir a confiabilidade e robustez das funcionalidades, além de adotar boas práticas de desenvolvimento, como injeção de dependência, testes unitários e integração contínua. Ideal para projetos que exigem alta performance, flexibilidade e facilidade de manutenção.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -32,13 +32,13 @@
 								},
 								{
 									"key": "email",
-									"value": "erick.estoque@gmail",
+									"value": "erick@upd8",
 									"description": "Endereço de e-mail do novo usuário",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "aa1234567",
+									"value": "teste1",
 									"description": "Senha do novo usuário",
 									"type": "text"
 								}
@@ -327,13 +327,13 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "erick.estoque@gmail",
+									"value": "erick@upd8",
 									"description": "Endereço de e-mail do usuário",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "aa1234567",
+									"value": "teste1",
 									"description": "Senha do usuário",
 									"type": "text"
 								}
@@ -588,7 +588,7 @@
 					]
 				},
 				{
-					"name": "detalhar",
+					"name": "Detalhar",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -637,10 +637,6 @@
 										"type": "text"
 									}
 								],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
 								"url": {
 									"raw": "{{base_url}}usuario/detalhar",
 									"host": [
@@ -702,10 +698,6 @@
 										"type": "text"
 									}
 								],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
 								"url": {
 									"raw": "{{base_url}}usuario/detalhar",
 									"host": [
@@ -767,10 +759,6 @@
 										"type": "text"
 									}
 								],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
 								"url": {
 									"raw": "{{base_url}}usuario/detalhar",
 									"host": [
@@ -873,10 +861,6 @@
 										"type": "text"
 									}
 								],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
 								"url": {
 									"raw": "{{base_url}}usuario/logout",
 									"host": [
@@ -938,10 +922,6 @@
 										"type": "text"
 									}
 								],
-								"body": {
-									"mode": "formdata",
-									"formdata": []
-								},
 								"url": {
 									"raw": "{{base_url}}usuario/logout",
 									"host": [
@@ -991,6 +971,2683 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"resposta\": \"Token inválido.\",\n    \"codigo_resposta\": 333\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Cidades",
+			"item": [
+				{
+					"name": "Consultar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzdWFyaW8vbG9naW4iLCJpYXQiOjE3NDU3NjAyNjMsImV4cCI6MTc0NTc2Mzg2MywibmJmIjoxNzQ1NzYwMjYzLCJqdGkiOiJ6eFU2dGRLOU5aZENYUGl2Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.1m4zpPDaYFLfkfsjISnJNpH-XspjBJ0jkILuuysN-74",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}cidades",
+							"host": [
+								"{{base_url}}cidades"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "333 - Não Autorizado",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}cidades",
+									"host": [
+										"{{base_url}}cidades"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 27 Apr 2025 13:19:24 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": \"Token inválido.\",\n    \"codigo_resposta\": 333\n}"
+						},
+						{
+							"name": "111 - Sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}cidades",
+									"host": [
+										"{{base_url}}cidades"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 27 Apr 2025 13:24:51 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": [\n        {\n            \"id\": 1,\n            \"created_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"updated_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"nome\": \"São Paulo\",\n            \"estado\": \"SP\",\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 2,\n            \"created_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"updated_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"nome\": \"Rio de Janeiro\",\n            \"estado\": \"RJ\",\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 3,\n            \"created_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"updated_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"nome\": \"Belo Horizonte\",\n            \"estado\": \"MG\",\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 4,\n            \"created_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"updated_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"nome\": \"Salvador\",\n            \"estado\": \"BA\",\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 5,\n            \"created_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"updated_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"nome\": \"Fortaleza\",\n            \"estado\": \"CE\",\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 6,\n            \"created_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"updated_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"nome\": \"Curitiba\",\n            \"estado\": \"PR\",\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 7,\n            \"created_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"updated_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"nome\": \"Manaus\",\n            \"estado\": \"AM\",\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 8,\n            \"created_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"updated_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"nome\": \"Recife\",\n            \"estado\": \"PE\",\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 9,\n            \"created_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"updated_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"nome\": \"Porto Alegre\",\n            \"estado\": \"RS\",\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 10,\n            \"created_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"updated_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"nome\": \"Belém\",\n            \"estado\": \"PA\",\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 11,\n            \"created_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"updated_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"nome\": \"Goiânia\",\n            \"estado\": \"GO\",\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 12,\n            \"created_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"updated_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"nome\": \"Guarulhos\",\n            \"estado\": \"SP\",\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 13,\n            \"created_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"updated_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"nome\": \"Campinas\",\n            \"estado\": \"SP\",\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 14,\n            \"created_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"updated_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"nome\": \"São Luís\",\n            \"estado\": \"MA\",\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 15,\n            \"created_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"updated_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"nome\": \"Maceió\",\n            \"estado\": \"AL\",\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 16,\n            \"created_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"updated_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"nome\": \"Natal\",\n            \"estado\": \"RN\",\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 17,\n            \"created_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"updated_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"nome\": \"Teresina\",\n            \"estado\": \"PI\",\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 18,\n            \"created_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"updated_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"nome\": \"Campo Grande\",\n            \"estado\": \"MS\",\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 19,\n            \"created_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"updated_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"nome\": \"São Bernardo do Campo\",\n            \"estado\": \"SP\",\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 20,\n            \"created_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"updated_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"nome\": \"Nova Iguaçu\",\n            \"estado\": \"RJ\",\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 21,\n            \"created_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"updated_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"nome\": \"João Pessoa\",\n            \"estado\": \"PB\",\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 22,\n            \"created_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"updated_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"nome\": \"São José dos Campos\",\n            \"estado\": \"SP\",\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 23,\n            \"created_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"updated_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"nome\": \"Santo André\",\n            \"estado\": \"SP\",\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 24,\n            \"created_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"updated_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"nome\": \"Jaboatão dos Guararapes\",\n            \"estado\": \"PE\",\n            \"deleted_at\": null\n        },\n        {\n            \"id\": 25,\n            \"created_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"updated_at\": \"2025-04-27T13:23:42.000000Z\",\n            \"nome\": \"Osasco\",\n            \"estado\": \"SP\",\n            \"deleted_at\": null\n        }\n    ],\n    \"codigo_resposta\": 111\n}"
+						}
+					]
+				},
+				{
+					"name": "Registrar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzdWFyaW8vcmVnaXN0cmFyIiwiaWF0IjoxNzQ1Nzg3OTcyLCJleHAiOjE3NDU3OTE1NzIsIm5iZiI6MTc0NTc4Nzk3MiwianRpIjoiRkFLY0plMjlHWnhlVzZtcSIsInN1YiI6IjE3IiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.jDT_aqKjsPFIU0SPRolak35XM9caoxQ_my9o66B5VqM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nome",
+									"value": "Santana",
+									"type": "text"
+								},
+								{
+									"key": "estado",
+									"value": "BA",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}cidades",
+							"host": [
+								"{{base_url}}cidades"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "333 - Não Autorizado",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}cidades",
+									"host": [
+										"{{base_url}}cidades"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 27 Apr 2025 13:27:40 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": \"Token inválido.\",\n    \"codigo_resposta\": 333\n}"
+						},
+						{
+							"name": "333 - Validação",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{base_url}}cidades",
+									"host": [
+										"{{base_url}}cidades"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 27 Apr 2025 13:30:38 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": [\n        \"O campo nome é obrigatório.\",\n        \"O campo estados é obrigatório.\"\n    ],\n    \"codigo_resposta\": 333\n}"
+						},
+						{
+							"name": "333 - Erro Interno",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nome",
+											"value": "Natal",
+											"type": "text"
+										},
+										{
+											"key": "estado",
+											"value": "RN",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}cidades",
+									"host": [
+										"{{base_url}}cidades"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 27 Apr 2025 14:12:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": \"Erro ao processar a requisição\",\n    \"codigo_resposta\": 333\n}"
+						},
+						{
+							"name": "111 - Sucesso",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nome",
+											"value": "Santana",
+											"type": "text"
+										},
+										{
+											"key": "estado",
+											"value": "BA",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}cidades",
+									"host": [
+										"{{base_url}}cidades"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 27 Apr 2025 14:13:58 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": {\n        \"nome\": \"Santana\",\n        \"estado\": \"BA\",\n        \"updated_at\": \"2025-04-27T14:13:58.000000Z\",\n        \"created_at\": \"2025-04-27T14:13:58.000000Z\",\n        \"id\": 33\n    },\n    \"codigo_resposta\": 111\n}"
+						}
+					]
+				},
+				{
+					"name": "Buscar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzdWFyaW8vbG9naW4iLCJpYXQiOjE3NDU3NjM4OTAsImV4cCI6MTc0NTc2NzQ5MCwibmJmIjoxNzQ1NzYzODkwLCJqdGkiOiJ5ak5TeDU0bW1abjlZTnY2Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.GHuues7mjp_aObsZbIoxyDR9FmE4xQteULkz3BHvz38",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}cidades/1",
+							"host": [
+								"{{base_url}}cidades"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "333 - Não Autorizado",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}cidades",
+									"host": [
+										"{{base_url}}cidades"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 27 Apr 2025 13:19:24 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": \"Token inválido.\",\n    \"codigo_resposta\": 333\n}"
+						},
+						{
+							"name": "111 - Sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}cidades/1",
+									"host": [
+										"{{base_url}}cidades"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 27 Apr 2025 14:15:29 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": {\n        \"id\": 1,\n        \"created_at\": \"2025-04-27T13:50:14.000000Z\",\n        \"updated_at\": \"2025-04-27T13:50:14.000000Z\",\n        \"nome\": \"São Paulo\",\n        \"estado\": \"SP\",\n        \"deleted_at\": null\n    },\n    \"codigo_resposta\": 111\n}"
+						}
+					]
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzdWFyaW8vbG9naW4iLCJpYXQiOjE3NDU3NjM4OTAsImV4cCI6MTc0NTc2NzQ5MCwibmJmIjoxNzQ1NzYzODkwLCJqdGkiOiJ5ak5TeDU0bW1abjlZTnY2Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.GHuues7mjp_aObsZbIoxyDR9FmE4xQteULkz3BHvz38",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nome",
+									"value": "Batatais",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}cidades/1",
+							"host": [
+								"{{base_url}}cidades"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "333 - Não Autorizado",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}cidades",
+									"host": [
+										"{{base_url}}cidades"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 27 Apr 2025 13:19:24 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": \"Token inválido.\",\n    \"codigo_resposta\": 333\n}"
+						},
+						{
+							"name": "111 - Sucesso",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nome",
+											"value": "BDK",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}cidades/1",
+									"host": [
+										"{{base_url}}cidades"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 27 Apr 2025 14:25:14 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": \"Sucesso na operação.\",\n    \"codigo_resposta\": 111\n}"
+						}
+					]
+				},
+				{
+					"name": "Excluir",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzdWFyaW8vbG9naW4iLCJpYXQiOjE3NDU3NjAyNjMsImV4cCI6MTc0NTc2Mzg2MywibmJmIjoxNzQ1NzYwMjYzLCJqdGkiOiJ6eFU2dGRLOU5aZENYUGl2Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.1m4zpPDaYFLfkfsjISnJNpH-XspjBJ0jkILuuysN-74",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}cidades/31",
+							"host": [
+								"{{base_url}}cidades"
+							],
+							"path": [
+								"31"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "333 - Não Autorizado",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}cidades",
+									"host": [
+										"{{base_url}}cidades"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 27 Apr 2025 13:19:24 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": \"Token inválido.\",\n    \"codigo_resposta\": 333\n}"
+						},
+						{
+							"name": "111 - Sucesso",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}cidades/31",
+									"host": [
+										"{{base_url}}cidades"
+									],
+									"path": [
+										"31"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 27 Apr 2025 14:23:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": \"Sucesso na operação.\",\n    \"codigo_resposta\": 111\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Clientes",
+			"item": [
+				{
+					"name": "Consultar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzdWFyaW8vbG9naW4iLCJpYXQiOjE3NDU5Nzg1OTgsImV4cCI6MTc0NTk4MjE5OCwibmJmIjoxNzQ1OTc4NTk4LCJqdGkiOiJSWmJGWW1mTUlwalZvMGhwIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.IwqaHzEqortOviIXf_6ek4fmkSOKF4nsf4T3cZyu5Gg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}clientes",
+							"host": [
+								"{{base_url}}clientes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "111 - Sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}clientes?cpf=&nome=&data_nascimento=&sexo=&estado=SC&cidade_id=",
+									"host": [
+										"{{base_url}}clientes"
+									],
+									"query": [
+										{
+											"key": "cpf",
+											"value": ""
+										},
+										{
+											"key": "nome",
+											"value": ""
+										},
+										{
+											"key": "data_nascimento",
+											"value": ""
+										},
+										{
+											"key": "sexo",
+											"value": ""
+										},
+										{
+											"key": "estado",
+											"value": "SC"
+										},
+										{
+											"key": "cidade_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 30 Apr 2025 02:10:07 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": [\n        {\n            \"id\": 42,\n            \"nome\": \"Cliente 42\",\n            \"endereco\": \"Rua Cliente 42, 59\",\n            \"cpf\": \"000.000.000-42\",\n            \"data_nascimento\": \"29/04/1989\",\n            \"sexo\": \"Masculino\",\n            \"estado\": \"SC\",\n            \"cidade\": \"Belo Horizonte\"\n        },\n        {\n            \"id\": 43,\n            \"nome\": \"Cliente 43\",\n            \"endereco\": \"Rua Cliente 43, 8\",\n            \"cpf\": \"000.000.000-43\",\n            \"data_nascimento\": \"29/04/1990\",\n            \"sexo\": \"Masculino\",\n            \"estado\": \"SC\",\n            \"cidade\": \"Belo Horizonte\"\n        },\n        {\n            \"id\": 16,\n            \"nome\": \"Cliente 16\",\n            \"endereco\": \"Rua Cliente 16, 375\",\n            \"cpf\": \"000.000.000-16\",\n            \"data_nascimento\": \"29/04/1995\",\n            \"sexo\": \"Feminino\",\n            \"estado\": \"SC\",\n            \"cidade\": \"Rio de Janeiro\"\n        },\n        {\n            \"id\": 23,\n            \"nome\": \"Cliente 23\",\n            \"endereco\": \"Rua Cliente 23, 104\",\n            \"cpf\": \"000.000.000-23\",\n            \"data_nascimento\": \"29/04/1993\",\n            \"sexo\": \"Feminino\",\n            \"estado\": \"SC\",\n            \"cidade\": \"Salvador\"\n        },\n        {\n            \"id\": 18,\n            \"nome\": \"Cliente 18\",\n            \"endereco\": \"Rua Cliente 18, 622\",\n            \"cpf\": \"000.000.000-18\",\n            \"data_nascimento\": \"29/04/1975\",\n            \"sexo\": \"Masculino\",\n            \"estado\": \"SC\",\n            \"cidade\": \"São Paulo\"\n        },\n        {\n            \"id\": 25,\n            \"nome\": \"Cliente 25\",\n            \"endereco\": \"Rua Cliente 25, 493\",\n            \"cpf\": \"000.000.000-25\",\n            \"data_nascimento\": \"29/04/1979\",\n            \"sexo\": \"Masculino\",\n            \"estado\": \"SC\",\n            \"cidade\": \"São Paulo\"\n        }\n    ],\n    \"codigo_resposta\": 111\n}"
+						}
+					]
+				},
+				{
+					"name": "Registrar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzdWFyaW8vcmVnaXN0cmFyIiwiaWF0IjoxNzQ1Nzc5MDg5LCJleHAiOjE3NDU3ODI2ODksIm5iZiI6MTc0NTc3OTA4OSwianRpIjoieVdhTU4wSTdVeDB4OHNmciIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.eUq-UbAdgeWFJch5suonsVNaVqg_P7uAOUbcfK1vZYg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "cpf",
+									"value": "12398457103",
+									"type": "text"
+								},
+								{
+									"key": "nome",
+									"value": "Alex Sandro",
+									"type": "text"
+								},
+								{
+									"key": "data_nascimento",
+									"value": "2002-01-01",
+									"type": "text"
+								},
+								{
+									"key": "sexo",
+									"value": "M",
+									"type": "text"
+								},
+								{
+									"key": "endereco",
+									"value": "R. Teste de Software",
+									"type": "text"
+								},
+								{
+									"key": "estado",
+									"value": "SP",
+									"type": "text"
+								},
+								{
+									"key": "cidade_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}clientes",
+							"host": [
+								"{{base_url}}clientes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "333 - Validação",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{base_url}}clientes",
+									"host": [
+										"{{base_url}}clientes"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 27 Apr 2025 18:41:54 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": [\n        \"O campo cpf é obrigatório.\",\n        \"O campo nome é obrigatório.\",\n        \"O campo data nascimento é obrigatório.\",\n        \"O campo sexo é obrigatório.\",\n        \"O campo endereco é obrigatório.\",\n        \"O campo estado é obrigatório.\",\n        \"O campo cidade id é obrigatório.\"\n    ],\n    \"codigo_resposta\": 333\n}"
+						},
+						{
+							"name": "333 - Validação",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "cpf",
+											"value": "12398457103",
+											"type": "text"
+										},
+										{
+											"key": "nome",
+											"value": "Alex Sandro",
+											"type": "text"
+										},
+										{
+											"key": "data_nascimento",
+											"value": "01/01/2001",
+											"type": "text"
+										},
+										{
+											"key": "sexo",
+											"value": "A",
+											"type": "text"
+										},
+										{
+											"key": "endereco",
+											"value": "R. Teste de Software",
+											"type": "text"
+										},
+										{
+											"key": "estado",
+											"value": "WWW",
+											"type": "text"
+										},
+										{
+											"key": "cidade_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}clientes",
+									"host": [
+										"{{base_url}}clientes"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 27 Apr 2025 18:48:00 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": [\n        \"O valor selecionado para sexo é inválido.\",\n        \"O campo estado deve ter exatamente 2 elemento(s).\",\n        \"O valor selecionado para estado é inválido.\"\n    ],\n    \"codigo_resposta\": 333\n}"
+						},
+						{
+							"name": "333 - Validação",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "cpf",
+											"value": "12398457103",
+											"type": "text"
+										},
+										{
+											"key": "nome",
+											"value": "Alex Sandro",
+											"type": "text"
+										},
+										{
+											"key": "data_nascimento",
+											"value": "01/01/2002",
+											"type": "text"
+										},
+										{
+											"key": "sexo",
+											"value": "M",
+											"type": "text"
+										},
+										{
+											"key": "endereco",
+											"value": "R. Teste de Software",
+											"type": "text"
+										},
+										{
+											"key": "estado",
+											"value": "SP",
+											"type": "text"
+										},
+										{
+											"key": "cidade_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}clientes",
+									"host": [
+										"{{base_url}}clientes"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 27 Apr 2025 18:53:56 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": [\n        \"A data de nascimento deve estar no formato Y-m-d.\"\n    ],\n    \"codigo_resposta\": 333\n}"
+						},
+						{
+							"name": "111 - Sucesso",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "cpf",
+											"value": "12398457103",
+											"type": "text"
+										},
+										{
+											"key": "nome",
+											"value": "Alex Sandro",
+											"type": "text"
+										},
+										{
+											"key": "data_nascimento",
+											"value": "2002-01-01",
+											"type": "text"
+										},
+										{
+											"key": "sexo",
+											"value": "M",
+											"type": "text"
+										},
+										{
+											"key": "endereco",
+											"value": "R. Teste de Software",
+											"type": "text"
+										},
+										{
+											"key": "estado",
+											"value": "SP",
+											"type": "text"
+										},
+										{
+											"key": "cidade_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}clientes",
+									"host": [
+										"{{base_url}}clientes"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 27 Apr 2025 18:54:25 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": {\n        \"cpf\": \"12398457103\",\n        \"nome\": \"Alex Sandro\",\n        \"data_nascimento\": \"2002-01-01\",\n        \"sexo\": \"M\",\n        \"endereco\": \"R. Teste de Software\",\n        \"estado\": \"SP\",\n        \"cidade_id\": \"1\",\n        \"updated_at\": \"2025-04-27T18:54:25.000000Z\",\n        \"created_at\": \"2025-04-27T18:54:25.000000Z\",\n        \"id\": 4\n    },\n    \"codigo_resposta\": 111\n}"
+						}
+					]
+				},
+				{
+					"name": "Buscar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzdWFyaW8vbG9naW4iLCJpYXQiOjE3NDU3ODAwOTQsImV4cCI6MTc0NTc4MzY5NCwibmJmIjoxNzQ1NzgwMDk0LCJqdGkiOiJqcWR2eWZ3b1ozN0xtSjVNIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.Pvl5mLQhMUx1XGopSyk_3k72MxBh17tAIkzXC-yNRsY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}clientes/1",
+							"host": [
+								"{{base_url}}clientes"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "111 - Sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}clientes/4",
+									"host": [
+										"{{base_url}}clientes"
+									],
+									"path": [
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 27 Apr 2025 18:55:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": {\n        \"id\": 4,\n        \"created_at\": \"2025-04-27T18:54:25.000000Z\",\n        \"updated_at\": \"2025-04-27T18:54:25.000000Z\",\n        \"cpf\": \"12398457103\",\n        \"nome\": \"Alex Sandro\",\n        \"data_nascimento\": \"2002-01-01\",\n        \"sexo\": \"M\",\n        \"endereco\": \"R. Teste de Software\",\n        \"estado\": \"SP\",\n        \"cidade_id\": 1,\n        \"deleted_at\": null\n    },\n    \"codigo_resposta\": 111\n}"
+						}
+					]
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzdWFyaW8vbG9naW4iLCJpYXQiOjE3NDU3ODAwOTQsImV4cCI6MTc0NTc4MzY5NCwibmJmIjoxNzQ1NzgwMDk0LCJqdGkiOiJqcWR2eWZ3b1ozN0xtSjVNIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.Pvl5mLQhMUx1XGopSyk_3k72MxBh17tAIkzXC-yNRsY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nome",
+									"value": "Leonardo",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}clientes/1",
+							"host": [
+								"{{base_url}}clientes"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "111 - Sucesso",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "nome",
+											"value": "Leonardo",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}clientes/1",
+									"host": [
+										"{{base_url}}clientes"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 27 Apr 2025 18:56:50 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": \"Sucesso na operação.\",\n    \"codigo_resposta\": 111\n}"
+						}
+					]
+				},
+				{
+					"name": "Excluir",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzdWFyaW8vbG9naW4iLCJpYXQiOjE3NDU3ODAwOTQsImV4cCI6MTc0NTc4MzY5NCwibmJmIjoxNzQ1NzgwMDk0LCJqdGkiOiJqcWR2eWZ3b1ozN0xtSjVNIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.Pvl5mLQhMUx1XGopSyk_3k72MxBh17tAIkzXC-yNRsY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}clientes/1",
+							"host": [
+								"{{base_url}}clientes"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "111 - Sucesso",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}clientes/1",
+									"host": [
+										"{{base_url}}clientes"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 27 Apr 2025 18:58:08 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": \"Sucesso na operação.\",\n    \"codigo_resposta\": 111\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Representantes",
+			"item": [
+				{
+					"name": "Consultar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzdWFyaW8vbG9naW4iLCJpYXQiOjE3NDU5Nzg1OTgsImV4cCI6MTc0NTk4MjE5OCwibmJmIjoxNzQ1OTc4NTk4LCJqdGkiOiJSWmJGWW1mTUlwalZvMGhwIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.IwqaHzEqortOviIXf_6ek4fmkSOKF4nsf4T3cZyu5Gg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}representantes",
+							"host": [
+								"{{base_url}}representantes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "111 - Sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}representantes",
+									"host": [
+										"{{base_url}}representantes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 30 Apr 2025 02:05:35 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": [\n        {\n            \"id\": 8,\n            \"nome\": \"Teste\",\n            \"endereco\": \"Rua do Teste\",\n            \"cpf\": \"111.111.111-11\",\n            \"data_nascimento\": \"01/01/2001\",\n            \"sexo\": \"Masculino\",\n            \"estado\": \"SP\",\n            \"cidade\": \"Batatais\",\n            \"telefone\": \"(11) 11111-1111\",\n            \"email\": \"teste.teste@teste.com\"\n        }\n    ],\n    \"codigo_resposta\": 111\n}"
+						}
+					]
+				},
+				{
+					"name": "Registrar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzdWFyaW8vcmVnaXN0cmFyIiwiaWF0IjoxNzQ1Nzg3OTcyLCJleHAiOjE3NDU3OTE1NzIsIm5iZiI6MTc0NTc4Nzk3MiwianRpIjoiRkFLY0plMjlHWnhlVzZtcSIsInN1YiI6IjE3IiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.jDT_aqKjsPFIU0SPRolak35XM9caoxQ_my9o66B5VqM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "cpf",
+									"value": "12398457103",
+									"type": "text"
+								},
+								{
+									"key": "nome",
+									"value": "Alex Sandro",
+									"type": "text"
+								},
+								{
+									"key": "data_nascimento",
+									"value": "2002-01-01",
+									"type": "text"
+								},
+								{
+									"key": "sexo",
+									"value": "M",
+									"type": "text"
+								},
+								{
+									"key": "endereco",
+									"value": "R. Teste de Software",
+									"type": "text"
+								},
+								{
+									"key": "estado",
+									"value": "SP",
+									"type": "text"
+								},
+								{
+									"key": "cidade_id",
+									"value": "27",
+									"type": "text"
+								},
+								{
+									"key": "telefone",
+									"value": "(15) 3669-1032",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "teste.exemplo@exemplo",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}representantes",
+							"host": [
+								"{{base_url}}representantes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "333 - Validação",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "cpf",
+											"value": "12398457103",
+											"type": "text"
+										},
+										{
+											"key": "nome",
+											"value": "Alex Sandro",
+											"type": "text"
+										},
+										{
+											"key": "data_nascimento",
+											"value": "2002-01-01",
+											"type": "text"
+										},
+										{
+											"key": "sexo",
+											"value": "M",
+											"type": "text"
+										},
+										{
+											"key": "endereco",
+											"value": "R. Teste de Software",
+											"type": "text"
+										},
+										{
+											"key": "estado",
+											"value": "SP",
+											"type": "text"
+										},
+										{
+											"key": "cidade_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}representantes",
+									"host": [
+										"{{base_url}}representantes"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 27 Apr 2025 20:08:16 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": [\n        \"O campo email é obrigatório.\"\n    ],\n    \"codigo_resposta\": 333\n}"
+						},
+						{
+							"name": "111 - Sucesso",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "cpf",
+											"value": "12398457103",
+											"type": "text"
+										},
+										{
+											"key": "nome",
+											"value": "Alex Sandro",
+											"type": "text"
+										},
+										{
+											"key": "data_nascimento",
+											"value": "2002-01-01",
+											"type": "text"
+										},
+										{
+											"key": "sexo",
+											"value": "M",
+											"type": "text"
+										},
+										{
+											"key": "endereco",
+											"value": "R. Teste de Software",
+											"type": "text"
+										},
+										{
+											"key": "estado",
+											"value": "SP",
+											"type": "text"
+										},
+										{
+											"key": "cidade_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "telefone",
+											"value": "(15) 3669-1032",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "teste.exemplo@exemplo",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}representantes",
+									"host": [
+										"{{base_url}}representantes"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 27 Apr 2025 20:08:57 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": {\n        \"cpf\": \"12398457103\",\n        \"nome\": \"Alex Sandro\",\n        \"data_nascimento\": \"2002-01-01\",\n        \"sexo\": \"M\",\n        \"endereco\": \"R. Teste de Software\",\n        \"estado\": \"SP\",\n        \"cidade_id\": \"1\",\n        \"telefone\": \"(15) 3669-1032\",\n        \"email\": \"teste.exemplo@exemplo\",\n        \"updated_at\": \"2025-04-27T20:08:57.000000Z\",\n        \"created_at\": \"2025-04-27T20:08:57.000000Z\",\n        \"id\": 6\n    },\n    \"codigo_resposta\": 111\n}"
+						}
+					]
+				},
+				{
+					"name": "Buscar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzdWFyaW8vbG9naW4iLCJpYXQiOjE3NDU3ODQ1ODAsImV4cCI6MTc0NTc4ODE4MCwibmJmIjoxNzQ1Nzg0NTgwLCJqdGkiOiJZS2hFd3BqWjhQNDdsT1FNIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.Yz8c3diYld6q3XgxHtUxcxrYuz7333AVRYRZqYBQgTQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}representantes/1",
+							"host": [
+								"{{base_url}}representantes"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "111 - Sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}representantes/1",
+									"host": [
+										"{{base_url}}representantes"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 27 Apr 2025 20:09:51 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": {\n        \"id\": 1,\n        \"created_at\": \"2025-04-27T20:07:00.000000Z\",\n        \"updated_at\": \"2025-04-27T20:07:00.000000Z\",\n        \"cpf\": \"23493976470\",\n        \"nome\": \"Dr. Bárbara Pedrosa Matias\",\n        \"data_nascimento\": \"1971-12-23\",\n        \"sexo\": \"M\",\n        \"telefone\": \"(65) 98118-3815\",\n        \"email\": \"sepulveda.jonas@example.com\",\n        \"endereco\": \"Largo Reis, 72. 4º Andar\",\n        \"estado\": \"MG\",\n        \"cidade_id\": 4,\n        \"deleted_at\": null\n    },\n    \"codigo_resposta\": 111\n}"
+						}
+					]
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzdWFyaW8vbG9naW4iLCJpYXQiOjE3NDU3ODQ1ODAsImV4cCI6MTc0NTc4ODE4MCwibmJmIjoxNzQ1Nzg0NTgwLCJqdGkiOiJZS2hFd3BqWjhQNDdsT1FNIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.Yz8c3diYld6q3XgxHtUxcxrYuz7333AVRYRZqYBQgTQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nome",
+									"value": "Rampage",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}representantes/1",
+							"host": [
+								"{{base_url}}representantes"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "111 - Sucesso",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "nome",
+											"value": "Rampage",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}representantes/1",
+									"host": [
+										"{{base_url}}representantes"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 27 Apr 2025 20:11:08 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": \"Sucesso na operação.\",\n    \"codigo_resposta\": 111\n}"
+						}
+					]
+				},
+				{
+					"name": "Excluir",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzdWFyaW8vbG9naW4iLCJpYXQiOjE3NDU3ODQ1ODAsImV4cCI6MTc0NTc4ODE4MCwibmJmIjoxNzQ1Nzg0NTgwLCJqdGkiOiJZS2hFd3BqWjhQNDdsT1FNIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.Yz8c3diYld6q3XgxHtUxcxrYuz7333AVRYRZqYBQgTQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}representantes/1",
+							"host": [
+								"{{base_url}}representantes"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "111 - Sucesso",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}representantes/1",
+									"host": [
+										"{{base_url}}representantes"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 27 Apr 2025 20:11:38 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": \"Sucesso na operação.\",\n    \"codigo_resposta\": 111\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Renders",
+			"item": [
+				{
+					"name": "ComboBoxEstados",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzdWFyaW8vcmVnaXN0cmFyIiwiaWF0IjoxNzQ1ODc5MDY4LCJleHAiOjE3NDU4ODI2NjgsIm5iZiI6MTc0NTg3OTA2OCwianRpIjoicDZ5N0F1cFF4dVVKeVZyMSIsInN1YiI6IjE3IiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.Sy-znXfle3pzqmBQ52gxzQxNcnMbzcKmg-2xxltOVtg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}renders/combo-box-estados",
+							"host": [
+								"{{base_url}}renders"
+							],
+							"path": [
+								"combo-box-estados"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "111 - Sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}renders/combo-box-estados",
+									"host": [
+										"{{base_url}}renders"
+									],
+									"path": [
+										"combo-box-estados"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 28 Apr 2025 22:25:38 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": \"<option value=\\\"\\\" selected disabled>Selecione</option><option value=\\\"AC\\\">Acre</option><option value=\\\"AL\\\">Alagoas</option><option value=\\\"AP\\\">Amapá</option><option value=\\\"AM\\\">Amazonas</option><option value=\\\"BA\\\">Bahia</option><option value=\\\"CE\\\">Ceará</option><option value=\\\"DF\\\">Distrito Federal</option><option value=\\\"ES\\\">Espírito Santo</option><option value=\\\"GO\\\">Goiás</option><option value=\\\"MA\\\">Maranhão</option><option value=\\\"MT\\\">Mato Grosso</option><option value=\\\"MS\\\">Mato Grosso do Sul</option><option value=\\\"MG\\\">Minas Gerais</option><option value=\\\"PA\\\">Pará</option><option value=\\\"PB\\\">Paraíba</option><option value=\\\"PR\\\">Paraná</option><option value=\\\"PE\\\">Pernambuco</option><option value=\\\"PI\\\">Piauí</option><option value=\\\"RJ\\\">Rio de Janeiro</option><option value=\\\"RN\\\">Rio Grande do Norte</option><option value=\\\"RS\\\">Rio Grande do Sul</option><option value=\\\"RO\\\">Rondônia</option><option value=\\\"RR\\\">Roraima</option><option value=\\\"SC\\\">Santa Catarina</option><option value=\\\"SP\\\">São Paulo</option><option value=\\\"SE\\\">Sergipe</option><option value=\\\"TO\\\">Tocantins</option>\",\n    \"codigo_resposta\": 111\n}"
+						}
+					]
+				},
+				{
+					"name": "ComboBoxCidades",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzdWFyaW8vcmVnaXN0cmFyIiwiaWF0IjoxNzQ1ODc5MDY4LCJleHAiOjE3NDU4ODI2NjgsIm5iZiI6MTc0NTg3OTA2OCwianRpIjoicDZ5N0F1cFF4dVVKeVZyMSIsInN1YiI6IjE3IiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.Sy-znXfle3pzqmBQ52gxzQxNcnMbzcKmg-2xxltOVtg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}renders/combo-box-cidades",
+							"host": [
+								"{{base_url}}renders"
+							],
+							"path": [
+								"combo-box-cidades"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "111 - Sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}renders/combo-box-cidades",
+									"host": [
+										"{{base_url}}renders"
+									],
+									"path": [
+										"combo-box-cidades"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 28 Apr 2025 22:37:08 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": \"<option value=\\\"\\\" selected disabled>Selecione</option><option data-uf=\\\"SP\\\" value=\\\"1\\\">São Paulo</option><option data-uf=\\\"RJ\\\" value=\\\"2\\\">Rio de Janeiro</option><option data-uf=\\\"MG\\\" value=\\\"3\\\">Belo Horizonte</option><option data-uf=\\\"BA\\\" value=\\\"4\\\">Salvador</option><option data-uf=\\\"CE\\\" value=\\\"5\\\">Cidade Atualizada</option><option data-uf=\\\"AM\\\" value=\\\"7\\\">Manaus</option><option data-uf=\\\"PE\\\" value=\\\"8\\\">Recife</option><option data-uf=\\\"RS\\\" value=\\\"9\\\">Porto Alegre</option><option data-uf=\\\"PA\\\" value=\\\"10\\\">Belém</option><option data-uf=\\\"GO\\\" value=\\\"11\\\">Goiânia</option><option data-uf=\\\"SP\\\" value=\\\"12\\\">Guarulhos</option><option data-uf=\\\"SP\\\" value=\\\"13\\\">Campinas</option><option data-uf=\\\"MA\\\" value=\\\"14\\\">São Luís</option><option data-uf=\\\"AL\\\" value=\\\"15\\\">Maceió</option><option data-uf=\\\"RN\\\" value=\\\"16\\\">Natal</option><option data-uf=\\\"PI\\\" value=\\\"17\\\">Teresina</option><option data-uf=\\\"MS\\\" value=\\\"18\\\">Campo Grande</option><option data-uf=\\\"SP\\\" value=\\\"19\\\">São Bernardo do Campo</option><option data-uf=\\\"RJ\\\" value=\\\"20\\\">Nova Iguaçu</option><option data-uf=\\\"PB\\\" value=\\\"21\\\">João Pessoa</option><option data-uf=\\\"SP\\\" value=\\\"22\\\">São José dos Campos</option><option data-uf=\\\"SP\\\" value=\\\"23\\\">Santo André</option><option data-uf=\\\"PE\\\" value=\\\"24\\\">Jaboatão dos Guararapes</option><option data-uf=\\\"SP\\\" value=\\\"25\\\">Osasco</option><option data-uf=\\\"BA\\\" value=\\\"26\\\">Santana</option>\",\n    \"codigo_resposta\": 111\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Relatórios",
+			"item": [
+				{
+					"name": "Representantes por ID Clientes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzdWFyaW8vbG9naW4iLCJpYXQiOjE3NDU5ODE3MzgsImV4cCI6MTc0NTk4NTMzOCwibmJmIjoxNzQ1OTgxNzM4LCJqdGkiOiJPTVZWZkE1ZXg1ZENkclhsIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.jGMyGmgq_AASBXVSaMzryoh_e93i4sqKUO7BXk4nfjk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}relatorios/representantes-por-id-cliente/1",
+							"host": [
+								"{{base_url}}relatorios"
+							],
+							"path": [
+								"representantes-por-id-cliente",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "111 - Sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}relatorios/representantes-por-id-cliente/1",
+									"host": [
+										"{{base_url}}relatorios"
+									],
+									"path": [
+										"representantes-por-id-cliente",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 30 Apr 2025 03:02:36 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": [\n        {\n            \"id\": 1,\n            \"nome\": \"José Representante 1\",\n            \"endereco\": \"Rua A, 100\",\n            \"telefone\": \"(11) 91111-1111\",\n            \"email\": \"jose.rep1@exemplo.com\",\n            \"cidade\": \"São Paulo\"\n        },\n        {\n            \"id\": 2,\n            \"nome\": \"Paula Representante 2\",\n            \"endereco\": \"Rua B, 200\",\n            \"telefone\": \"(11) 92222-2222\",\n            \"email\": \"paula.rep2@exemplo.com\",\n            \"cidade\": \"São Paulo\"\n        },\n        {\n            \"id\": 3,\n            \"nome\": \"Carlos Representante 3\",\n            \"endereco\": \"Rua C, 300\",\n            \"telefone\": \"(11) 93333-3333\",\n            \"email\": \"carlos.rep3@exemplo.com\",\n            \"cidade\": \"São Paulo\"\n        }\n    ],\n    \"codigo_resposta\": 111\n}"
+						}
+					]
+				},
+				{
+					"name": "Representantes por ID Cidades",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3VzdWFyaW8vbG9naW4iLCJpYXQiOjE3NDU5ODE3MzgsImV4cCI6MTc0NTk4NTMzOCwibmJmIjoxNzQ1OTgxNzM4LCJqdGkiOiJPTVZWZkE1ZXg1ZENkclhsIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.jGMyGmgq_AASBXVSaMzryoh_e93i4sqKUO7BXk4nfjk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}relatorios/representantes-por-id-cidade/2",
+							"host": [
+								"{{base_url}}relatorios"
+							],
+							"path": [
+								"representantes-por-id-cidade",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "333 - Sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}relatorios/representantes-por-id-cidade/2",
+									"host": [
+										"{{base_url}}relatorios"
+									],
+									"path": [
+										"representantes-por-id-cidade",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 30 Apr 2025 03:05:53 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resposta\": [\n        {\n            \"id\": 4,\n            \"nome\": \"Fernanda Representante 1\",\n            \"endereco\": \"Av. Leste, 400\",\n            \"telefone\": \"(21) 94444-4444\",\n            \"email\": \"fernanda.rep1@exemplo.com\",\n            \"cidade\": \"Rio de Janeiro\"\n        },\n        {\n            \"id\": 5,\n            \"nome\": \"Rafael Representante 2\",\n            \"endereco\": \"Av. Oeste, 500\",\n            \"telefone\": \"(21) 95555-5555\",\n            \"email\": \"rafael.rep2@exemplo.com\",\n            \"cidade\": \"Rio de Janeiro\"\n        },\n        {\n            \"id\": 6,\n            \"nome\": \"Juliana Representante 3\",\n            \"endereco\": \"Av. Norte, 600\",\n            \"telefone\": \"(21) 96666-6666\",\n            \"email\": \"juliana.rep3@exemplo.com\",\n            \"cidade\": \"Rio de Janeiro\"\n        }\n    ],\n    \"codigo_resposta\": 111\n}"
 						}
 					]
 				}

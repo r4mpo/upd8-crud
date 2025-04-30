@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\CidadesController;
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\Relatorios\RepresentantesCidadesController;
+use App\Http\Controllers\Relatorios\RepresentantesClientesController;
 use App\Http\Controllers\Renders\ComboBoxCidadesController;
 use App\Http\Controllers\Renders\ComboBoxEstadosController;
 use App\Http\Controllers\RepresentantesController;
@@ -23,5 +25,10 @@ Route::middleware('token')->group(function(){
     Route::prefix('renders')->group(function(){
         Route::get('combo-box-estados', [ComboBoxEstadosController::class, 'renderizar']);
         Route::get('combo-box-cidades', [ComboBoxCidadesController::class, 'renderizar']);
+    });
+
+    Route::prefix('relatorios')->group(function(){
+        Route::get('representantes-por-id-cliente/{id}', [RepresentantesClientesController::class, 'index']);
+        Route::get('representantes-por-id-cidade/{id}', [RepresentantesCidadesController::class, 'index']);
     });
 });
