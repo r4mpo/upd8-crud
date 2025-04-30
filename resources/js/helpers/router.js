@@ -9,6 +9,7 @@ import AnalisaRepresentantes from '../templates/Representantes/AnalisaRepresenta
 import ConsultaCidades from '../templates/Cidades/ConsultaCidades.vue';
 import AnalisaCidades from '../templates/Cidades/AnalisaCidades.vue';
 import ConsultaRepresentantesPorCidade from '../templates/Relatorios/ConsultaRepresentantesPorCidade.vue';
+import ConsultaRepresentantesPorCliente from '../templates/Relatorios/ConsultaRepresentantesPorCliente.vue';
 
 const routes = [
     { 
@@ -64,12 +65,12 @@ const routes = [
         component: ConsultaRepresentantesPorCidade,
         meta: { requiresAuth: true }
     },
-    // {
-    //     path: '/relatorios/representantes_clientes',
-    //     name: 'representantes_clientes',
-    //     component: ConsultaRepresentantesPorCliente,
-    //     meta: { requiresAuth: true }
-    // },
+    {
+        path: '/relatorios/representantes_clientes',
+        name: 'representantes_clientes',
+        component: ConsultaRepresentantesPorCliente,
+        meta: { requiresAuth: true }
+    },
 
 ];
 
